@@ -14,16 +14,16 @@
     <div class="geo-bg"></div>
     <div class="geo-bg-2"></div>
 
-    <header>
+    <header id="main-header">
         <div class="logo">O. OJOBARO <span class="accent">IND.</span></div>
         <nav>
             <a href="#core">CORE</a>
             <a href="#modules">MODULES</a>
-            
+            <a href="#">CONTACT</a>
         </nav>
     </header>
 
-    <main>
+    <main id="store-content">
         <!-- HERO SECTION: The Core System -->
         <section id="core" class="hero-section">
             <div class="glass-panel">
@@ -42,8 +42,8 @@
                     <span id="currency-converted" class="sub-price"></span>
                 </div>
 
-                <!-- Replace '#' with your Itch.io or Gumroad link -->
-                <a href="#" class="purchase-btn">
+                <!-- Link to your Paystack checkout page -->
+                <a href="https://paystack.com/buy/rapidi-core-system-qazlug" class="purchase-btn">
                     <span class="btn-text">INITIALIZE PURCHASE</span>
                     <div class="btn-slide"></div>
                 </a>
@@ -89,30 +89,122 @@
         <p class="tiny-text">PROPRIETARY SOFTWARE. UNAUTHORIZED DISTRIBUTION IS PROHIBITED.</p>
     </footer>
 
+    <!-- DYNAMIC SUCCESS SCREEN CONTAINER (Initially hidden) -->
+    <div id="success-overlay" class="success-overlay">
+        <div class="success-panel">
+            <div class="success-header">
+                <div class="status-icon">✅</div>
+                <h2>TRANSACTION COMPLETE</h2>
+            </div>
+            
+            <div class="success-message">
+                <p>Welcome to the R.A.P.I.D. system. Your purchase is verified.</p>
+                <p><strong>Primary Download:</strong> Your file transfer should commence shortly.</p>
+                <p><strong>Backup Contingency:</strong> If the download does not initiate, tap the secure link below.</p>
+            </div>
+            
+            <a id="contingency-link" class="purchase-btn contingency-btn" href="#">
+                <span class="btn-text">SECURE FILE ACCESS</span>
+                <div class="btn-slide"></div>
+            </a>
+            
+            <p class="final-note">A permanent download link has also been sent to your email.</p>
+        </div>
+    </div>
+
+
     <script>
-        // --- CURRENCY CONVERTER LOGIC ---
-        // Base Price: 30 ZAR
+        // --- CONFIGURATION ---
+        const PAYSTACK_LINK = "https://paystack.com/buy/rapidi-core-system-qazlug";
+        
+        // **IMPORTANT:** THIS MUST BE YOUR SECURE GOOGLE DRIVE/DROPBOX LINK
+        // Create this link by uploading your ZIP file to Google Drive and enabling "Anyone with link can view/download."
+        const CONTINGENCY_DOWNLOAD_LINK = "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_HERE";
+
+        // --- CORE PURCHASE LOGIC ---
+        const purchaseBtn = document.querySelector('.purchase-btn');
+        const btnText = document.querySelector('.btn-text');
+        
+        // Update the button's href immediately (Good for right-click/accessibility)
+        purchaseBtn.href = PAYSTACK_LINK;
+
+        if (purchaseBtn) {
+            purchaseBtn.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                
+                // 1. Visual Feedback (Simulating secure connection)
+                purchaseBtn.style.pointerEvents = 'none';
+                purchaseBtn.style.background = '#cfa24e';
+                purchaseBtn.style.color = '#000';
+                
+                let dots = 0;
+                btnText.innerText = "ESTABLISHING SECURE CONNECTION";
+                
+                const interval = setInterval(() => {
+                    dots = (dots + 1) % 4;
+                    const dotStr = ".".repeat(dots);
+                    btnText.innerText = "ESTABLISHING SECURE CONNECTION" + dotStr;
+                }, 300);
+
+                // 2. Execute Redirect
+                setTimeout(() => {
+                    clearInterval(interval);
+                    btnText.innerText = "ACCESS GRANTED";
+                    
+                    setTimeout(() => {
+                        window.location.href = PAYSTACK_LINK;
+                    }, 500);
+                }, 2000);
+            });
+        }
+
+        // --- SUCCESS SCREEN HANDLER ---
+        function handleSuccessScreen(downloadLink) {
+            const overlay = document.getElementById('success-overlay');
+            const contingencyBtn = document.getElementById('contingency-link');
+
+            // 1. Set the backup download link
+            contingencyBtn.href = downloadLink;
+            
+            // 2. Hide storefront content and show success overlay
+            document.getElementById('main-header').style.display = 'none';
+            document.getElementById('store-content').style.display = 'none';
+            document.getElementsByTagName('footer')[0].style.display = 'none';
+
+            overlay.style.display = 'flex';
+
+            // 3. Immediately trigger the primary download (in case Paystack didn't)
+            window.location.href = downloadLink;
+        }
+
+        // --- URL PARAMETER CHECK (The Paystack Redirect Check) ---
+        // This checks if the user was redirected back from Paystack after a successful payment.
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+        
+        // You MUST configure Paystack to redirect back to this page 
+        // with "?status=success" after a confirmed payment.
+        if (status === 'success') {
+            // If they are redirected, show the success screen with the secure link.
+            handleSuccessScreen(CONTINGENCY_DOWNLOAD_LINK);
+        }
+
+        // --- CURRENCY CONVERTER LOGIC (unchanged) ---
         const basePriceZAR = 30;
-        
-        // Approximate static rates (Safe approach without API key)
         const rates = {
-            'US': { code: 'USD', rate: 0.055, symbol: '$' },   // ~$1.65
-            'GB': { code: 'GBP', rate: 0.043, symbol: '£' },   // ~£1.30
-            'EU': { code: 'EUR', rate: 0.051, symbol: '€' },   // ~€1.50
-            'JP': { code: 'JPY', rate: 8.2, symbol: '¥' },     // ~¥245
+            'US': { code: 'USD', rate: 0.055, symbol: '$' },
+            'GB': { code: 'GBP', rate: 0.043, symbol: '£' },
+            'EU': { code: 'EUR', rate: 0.051, symbol: '€' },
+            'JP': { code: 'JPY', rate: 8.2, symbol: '¥' },
         };
-
-        // Detect user locale
         const userLang = navigator.language || navigator.userLanguage; 
-        const region = userLang.split('-')[1] || 'US'; // Default to US if unknown
-
-        const target = rates[region] || rates['US']; // Fallback to USD
-        
+        const region = userLang.split('-')[1] || 'US';
+        const target = rates[region] || rates['US'];
         const convertedPrice = (basePriceZAR * target.rate).toFixed(2);
-        
         const displayElement = document.getElementById('currency-converted');
-        displayElement.textContent = `(Approx. ${target.symbol}${convertedPrice} ${target.code})`;
-
+        if (displayElement) {
+            displayElement.textContent = `(Approx. ${target.symbol}${convertedPrice} ${target.code})`;
+        }
     </script>
 </body>
 </html>
