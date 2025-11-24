@@ -1,0 +1,298 @@
+/* --- RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f4; /* Stark "Transformers" White/Grey */
+    color: #111;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* --- BACKGROUND GEOMETRY (Deus Ex Vibes) --- */
+.geo-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60vw;
+    height: 100vh;
+    background: linear-gradient(135deg, transparent 50%, #e0e0e0 50%);
+    z-index: -1;
+    clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.geo-bg-2 {
+    position: absolute;
+    bottom: -10vh;
+    left: -10vw;
+    width: 50vw;
+    height: 50vh;
+    background: rgba(207, 162, 78, 0.1); /* Deus Ex Gold, very faint */
+    transform: rotate(15deg);
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+}
+
+/* --- HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    letter-spacing: 2px;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.accent {
+    color: #cfa24e; /* Gold Accent */
+}
+
+nav a {
+    text-decoration: none;
+    color: #666;
+    margin-left: 30px;
+    font-size: 0.8rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #111;
+    border-bottom: 1px solid #cfa24e;
+}
+
+/* --- MAIN LAYOUT --- */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+/* --- HERO SECTION (Glass Panel) --- */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px); /* The "Frosted Glass" look */
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    padding: 60px 80px;
+    text-align: center;
+    position: relative;
+    max-width: 700px;
+}
+
+/* Decoration line */
+.glass-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #cfa24e;
+}
+
+.hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    color: #111;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    letter-spacing: 8px;
+    color: #666;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.product-details p {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* --- PRICE TAG --- */
+.price-tag {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#price-display {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: #111;
+}
+
+.sub-price {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* --- BUY BUTTON (Assassin's Creed Interaction) --- */
+.purchase-btn {
+    display: inline-block;
+    position: relative;
+    padding: 15px 40px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    overflow: hidden;
+    transition: color 0.4s;
+}
+
+.btn-slide {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #cfa24e; /* Gold slide */
+    transition: left 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 0;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 1;
+}
+
+.purchase-btn:hover .btn-slide {
+    left: 0;
+}
+
+.purchase-btn:hover {
+    color: #000;
+}
+
+.policy-note {
+    margin-top: 20px;
+    font-size: 0.6rem;
+    color: #aaa;
+    text-transform: uppercase;
+}
+
+/* --- DLC SECTION (Mission Locked) --- */
+.section-header {
+    text-align: left;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: #ccc;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.dlc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.dlc-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0.7;
+    transition: transform 0.3s;
+}
+
+.dlc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* The Locked Overlay (AC Unity Animus Style) */
+.lock-overlay {
+    margin-bottom: 20px;
+    color: #888;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.loading-bar {
+    width: 100%;
+    height: 2px;
+    background: #eee;
+    position: relative;
+    overflow: hidden;
+}
+
+.bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background: #cfa24e;
+    animation: load 2s infinite ease-in-out;
+}
+
+.delay-bar .bar-fill {
+    animation-delay: 0.5s;
+    width: 30%;
+}
+
+@keyframes load {
+    0% { left: -50%; }
+    100% { left: 100%; }
+}
+
+.dlc-card h4 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ccc;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 50px;
+    color: #888;
+    font-size: 0.8rem;
+    border-top: 1px solid #eee;
+}
+
+.tiny-text {
+    font-size: 0.6rem;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    opacity: 0.5;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .glass-panel { padding: 40px 20px; }
+}

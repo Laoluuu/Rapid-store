@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R.A.P.I.D.(i) | Summer 25' Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts: Orbitron for headers, Montserrat for body to get that sleek futuristic look -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Background Geometry (Deus Ex Triangles) -->
+    <div class="geo-bg"></div>
+    <div class="geo-bg-2"></div>
+
+    <header>
+        <div class="logo">O. OJOBARO <span class="accent">IND.</span></div>
+        <nav>
+            <a href="#core">CORE</a>
+            <a href="#modules">MODULES</a>
+            <a href="#">CONTACT</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION: The Core System -->
+        <section id="core" class="hero-section">
+            <div class="glass-panel">
+                <div class="glitch-wrapper">
+                    <h1 class="hero-title" data-text="R.A.P.I.D.(i)">R.A.P.I.D.(i)</h1>
+                </div>
+                <h2 class="hero-subtitle">SUMMER 25' EDITION</h2>
+                
+                <div class="product-details">
+                    <p>Adaptive Intent-Detection System.</p>
+                    <p>The industrial standard for personal scheduling and logic processing.</p>
+                </div>
+
+                <div class="price-tag">
+                    <span id="price-display">ZAR 30.00</span>
+                    <span id="currency-converted" class="sub-price"></span>
+                </div>
+
+                <!-- Replace '#' with your Itch.io or Gumroad link -->
+                <a href="#" class="purchase-btn">
+                    <span class="btn-text">INITIALIZE PURCHASE</span>
+                    <div class="btn-slide"></div>
+                </a>
+
+                <div class="policy-note">
+                    *Secure Digital Delivery. No Refunds on Intellectual Property.
+                </div>
+            </div>
+        </section>
+
+        <!-- DLC SECTION: AC Unity "Mission Locked" Style -->
+        <section id="modules" class="dlc-section">
+            <h3 class="section-header">EXPANSION MODULES</h3>
+            
+            <div class="dlc-grid">
+                <!-- Locked Card 1 -->
+                <div class="dlc-card locked">
+                    <div class="lock-overlay">
+                        <div class="lock-icon">🔒</div>
+                        <div class="loading-bar"><div class="bar-fill"></div></div>
+                        <span>COMPILING ASSETS...</span>
+                    </div>
+                    <h4>SCHEDULER KERNEL</h4>
+                    <p>Advanced heuristics for time management.</p>
+                </div>
+
+                <!-- Locked Card 2 -->
+                <div class="dlc-card locked">
+                    <div class="lock-overlay">
+                        <div class="lock-icon">🔒</div>
+                        <div class="loading-bar delay-bar"><div class="bar-fill"></div></div>
+                        <span>ENCRYPTING NEURAL NET...</span>
+                    </div>
+                    <h4>STRESS ANALYZER</h4>
+                    <p>Biometric logic integration.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 O. OJOBARO. ALL RIGHTS RESERVED.</p>
+        <p class="tiny-text">PROPRIETARY SOFTWARE. UNAUTHORIZED DISTRIBUTION IS PROHIBITED.</p>
+    </footer>
+
+    <script>
+        // --- CURRENCY CONVERTER LOGIC ---
+        // Base Price: 30 ZAR
+        const basePriceZAR = 30;
+        
+        // Approximate static rates (Safe approach without API key)
+        const rates = {
+            'US': { code: 'USD', rate: 0.055, symbol: '$' },   // ~$1.65
+            'GB': { code: 'GBP', rate: 0.043, symbol: '£' },   // ~£1.30
+            'EU': { code: 'EUR', rate: 0.051, symbol: '€' },   // ~€1.50
+            'JP': { code: 'JPY', rate: 8.2, symbol: '¥' },     // ~¥245
+        };
+
+        // Detect user locale
+        const userLang = navigator.language || navigator.userLanguage; 
+        const region = userLang.split('-')[1] || 'US'; // Default to US if unknown
+
+        const target = rates[region] || rates['US']; // Fallback to USD
+        
+        const convertedPrice = (basePriceZAR * target.rate).toFixed(2);
+        
+        const displayElement = document.getElementById('currency-converted');
+        displayElement.textContent = `(Approx. ${target.symbol}${convertedPrice} ${target.code})`;
+
+    </script>
+</body>
+</html>
