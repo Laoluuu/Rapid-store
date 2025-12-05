@@ -81,7 +81,7 @@
         <p class="tiny-text">PROPRIETARY SOFTWARE. UNAUTHORIZED DISTRIBUTION IS PROHIBITED.</p>
     </footer>
 
-    <div id="success-overlay" class="success-overlay">
+    <div id="success-overlay" class="success-overlay" style="display: none;">
         <div class="success-panel">
             <div class="success-header">
                 <div class="status-icon">✅</div>
@@ -108,22 +108,24 @@
         // --- CONFIGURATION ---
         const PAYSTACK_LINK = "https://www.paypal.com/ncp/payment/7NC9DHUY63B98";
         
-        // **IMPORTANT:** THIS MUST BE YOUR SECURE GOOGLE DRIVE/DROPBOX LINK
-        // Create this link by uploading your ZIP file to Google Drive and enabling "Anyone with link can view/download."
-        const CONTINGENCY_DOWNLOAD_LINK = "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_HERE";
+        // **UPDATED DOWNLOAD LINK**
+        // The ID is extracted from your provided URL: 1HT9PLQwdMVINjfNuyJkFuBauYUSOzBb-
+        // The format is changed to force a direct download, not a preview page.
+        const DOWNLOAD_FILE_ID = "1HT9PLQwdMVINjfNuyJkFuBauYUSOzBb-";
+        const CONTINGENCY_DOWNLOAD_LINK = `https://drive.google.com/uc?export=download&id=${DOWNLOAD_FILE_ID}`;
 
-        // --- CORE PURCHASE LOGIC ---
+
+        // --- CORE PURCHASE LOGIC (unchanged) ---
         const purchaseBtn = document.querySelector('.purchase-btn');
         const btnText = document.querySelector('.btn-text');
         
-        // Update the button's href immediately (Good for right-click/accessibility)
         purchaseBtn.href = PAYSTACK_LINK;
 
         if (purchaseBtn) {
             purchaseBtn.addEventListener('click', (e) => {
                 e.preventDefault(); 
                 
-                // 1. Visual Feedback (Simulating secure connection)
+                // 1. Visual Feedback
                 purchaseBtn.style.pointerEvents = 'none';
                 purchaseBtn.style.background = '#cfa24e';
                 purchaseBtn.style.color = '#000';
@@ -149,34 +151,33 @@
             });
         }
 
-        // --- SUCCESS SCREEN HANDLER ---
+        // --- SUCCESS HANDLER (MODIFIED TO ONLY DOWNLOAD) ---
         function handleSuccessScreen(downloadLink) {
-            const overlay = document.getElementById('success-overlay');
-            const contingencyBtn = document.getElementById('contingency-link');
-
-            // 1. Set the backup download link
-            contingencyBtn.href = downloadLink;
             
-            // 2. Hide storefront content and show success overlay
+            // 1. Hide storefront content
             document.getElementById('main-header').style.display = 'none';
             document.getElementById('store-content').style.display = 'none';
             document.getElementsByTagName('footer')[0].style.display = 'none';
 
-            overlay.style.display = 'flex';
+            // 2. (Optional, if you kept the overlay): Set the backup download link
+            const contingencyBtn = document.getElementById('contingency-link');
+            if (contingencyBtn) {
+                contingencyBtn.href = downloadLink;
+                // document.getElementById('success-overlay').style.display = 'flex'; // COMMENTED OUT: Do not show the "black shenanigans"
+            }
 
-            // 3. Immediately trigger the primary download (in case Paystack didn't)
+
+            // 3. Immediately trigger the download. THIS IS YOUR HAIL MARY.
+            // The browser will typically show the default browser screen with the download in progress.
             window.location.href = downloadLink;
         }
 
-        // --- URL PARAMETER CHECK (The Paystack Redirect Check) ---
-        // This checks if the user was redirected back from Paystack after a successful payment.
+        // --- URL PARAMETER CHECK (The Payment Gateway Redirect Check) ---
         const urlParams = new URLSearchParams(window.location.search);
         const status = urlParams.get('status');
         
-        // You MUST configure Paystack to redirect back to this page 
-        // with "?status=success" after a confirmed payment.
+        // If the payment gateway redirects back with ?status=success, trigger the download immediately.
         if (status === 'success') {
-            // If they are redirected, show the success screen with the secure link.
             handleSuccessScreen(CONTINGENCY_DOWNLOAD_LINK);
         }
 
