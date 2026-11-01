@@ -16,9 +16,9 @@
     <div class="geo-bg"></div>
     <div class="geo-bg-2"></div>
 
-    <header id="main-header">
+    <header id="main-header" style="padding: 10px 40px; align-items: center; min-height: 220px;">
         <div class="logo">
-            O. OJOBARO <span class="accent">IND.</span>
+            <img src="header-logo.png" alt="Ojobaro Inc. Logo" style="height: 200px; width: auto; vertical-align: middle; display: block;">
         </div>
         <nav>
             <a href="#core">CORE</a>
@@ -34,9 +34,14 @@
                 </div>
                 <h2 class="hero-subtitle">SUMMER 25' EDITION</h2>
                 
+                <div class="windows-notice" style="display: flex; align-items: center; justify-content: center; gap: 14px; margin: 18px 0; font-weight: 400; font-size: 1.1rem;">
+                    <span>Windows OS Exclusive</span>
+                    <img src="windows-logo.png" alt="Windows Logo" style="height: 48px; width: auto; vertical-align: middle;">
+                </div>
+                
                 <div class="product-details">
-                    <p>It provides people who are computer literate or not with innovative and effective information communication technology assistance extremely affordably</p>
-                    <p>Only usable with laptops/desktops.</p>
+                    <p>A personal AI/LLM and assistant software interface designed to run locally, offline and without data tracking.</p>
+                    <p>Features: handles tasks like scheduling, reminders, stress management and calculations alongside AI/LLM functions.</p>
                 </div>
 
                 <div class="price-tag">
@@ -44,13 +49,13 @@
                     <span id="currency-converted" class="sub-price"></span>
                 </div>
 
-                <a href="https://www.paypal.com/ncp/payment/7NC9DHUY63B98" class="purchase-btn">
+                <a href="https://www.paypal.com/ncp/payment/7NC9DHUY63B98" class="purchase-btn" id="download-btn">
                     <span class="btn-text">INITIALIZE PURCHASE</span>
                     <div class="btn-slide"></div>
                 </a>
 
                 <div class="policy-note">
-                    *Secure Digital Delivery. No Refunds on Intellectual Property.
+                    *Secure Digital Delivery.
                 </div>
             </div>
         </section>
@@ -83,19 +88,18 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 O. OJOBARO. ALL RIGHTS RESERVED.</p>
+        <p>&copy; 2026 O. OJOBARO. ALL RIGHTS RESERVED.</p>
         <p class="tiny-text">PROPRIETARY SOFTWARE. UNAUTHORIZED DISTRIBUTION IS PROHIBITED.</p>
     </footer>
 
     <div id="success-overlay" class="success-overlay" style="display: none;">
         <div class="success-panel">
             <div class="success-header">
-                <div class="status-icon">✅</div>
                 <h2>TRANSACTION COMPLETE</h2>
             </div>
             
             <div class="success-message">
-                <p>Welcome to the R.A.P.I.D. system. Your purchase is verified.</p>
+                <p>Welcome to the R.A.P.I.D. system. Your purchase is verified. On behalf of Mr. Ojobaro, thank you for your purchase!</p>
                 <p><strong>Primary Download:</strong> Your file transfer should commence shortly.</p>
                 <p><strong>Backup Contingency:</strong> If the download does not initiate, tap the secure link below.</p>
             </div>
@@ -104,24 +108,21 @@
                 <span class="btn-text">SECURE FILE ACCESS</span>
                 <div class="btn-slide"></div>
             </a>
-            
-            <p class="final-note">A permanent download link has also been sent to your email.</p>
         </div>
     </div>
 
     <script>
         // --- CONFIGURATION ---
-        const PAYSTACK_LINK = "https://www.paypal.com/ncp/payment/7NC9DHUY63B98";
-        const DOWNLOAD_FILE_ID = "1HT9PLQwdMVINjfNuyJkFuBauYUSOzBb-";
-        const CONTINGENCY_DOWNLOAD_LINK = `https://drive.google.com/uc?export=download&id=${DOWNLOAD_FILE_ID}`;
+        const PAYPAL_LINK = "https://www.paypal.com/ncp/payment/7NC9DHUY63B98";
+        const CONTINGENCY_DOWNLOAD_LINK = "https://github.com/Laoluuu/Rapid-store/releases/download/v1.0.0/R.A.P.I.D.i.zip";
 
-        // --- CORE PURCHASE LOGIC ---
-        const purchaseBtn = document.querySelector('.purchase-btn');
+        // --- PURCHASE FLOW LOGIC ---
+        const purchaseBtn = document.getElementById('download-btn');
         const btnText = document.querySelector('.btn-text');
-        
-        purchaseBtn.href = PAYSTACK_LINK;
 
         if (purchaseBtn) {
+            purchaseBtn.href = PAYPAL_LINK;
+
             purchaseBtn.addEventListener('click', (e) => {
                 e.preventDefault(); 
                 
@@ -143,7 +144,7 @@
                     btnText.innerText = "ACCESS GRANTED";
                     
                     setTimeout(() => {
-                        window.location.href = PAYSTACK_LINK;
+                        window.location.href = PAYPAL_LINK;
                     }, 500);
                 }, 2000);
             });
@@ -154,14 +155,21 @@
             document.getElementById('store-content').style.display = 'none';
             document.getElementsByTagName('footer')[0].style.display = 'none';
 
+            const overlay = document.getElementById('success-overlay');
             const contingencyBtn = document.getElementById('contingency-link');
+            
             if (contingencyBtn) {
                 contingencyBtn.href = downloadLink;
+            }
+
+            if (overlay) {
+                overlay.style.display = 'flex';
             }
 
             window.location.href = downloadLink;
         }
 
+        // --- POST-PURCHASE REDIRECT LISTENER ---
         const urlParams = new URLSearchParams(window.location.search);
         const status = urlParams.get('status');
         
