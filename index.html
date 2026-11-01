@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ojobaro</title>
+    
+    <!-- Browser Tab Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -13,7 +17,9 @@
     <div class="geo-bg-2"></div>
 
     <header id="main-header">
-        <div class="logo">O. OJOBARO <span class="accent">IND.</span></div>
+        <div class="logo">
+            O. OJOBARO <span class="accent">IND.</span>
+        </div>
         <nav>
             <a href="#core">CORE</a>
             <a href="#modules">MODULES</a>
@@ -69,134 +75,4 @@
                         <div class="loading-bar delay-bar"><div class="bar-fill"></div></div>
                         <span>ENCRYPTING NEURAL NET...</span>
                     </div>
-                    <h4>STRESS ANALYZER</h4>
-                    <p>Biometric logic integration.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 O. OJOBARO. ALL RIGHTS RESERVED.</p>
-        <p class="tiny-text">PROPRIETARY SOFTWARE. UNAUTHORIZED DISTRIBUTION IS PROHIBITED.</p>
-    </footer>
-
-    <div id="success-overlay" class="success-overlay" style="display: none;">
-        <div class="success-panel">
-            <div class="success-header">
-                <div class="status-icon">✅</div>
-                <h2>TRANSACTION COMPLETE</h2>
-            </div>
-            
-            <div class="success-message">
-                <p>Welcome to the R.A.P.I.D. system. Your purchase is verified.</p>
-                <p><strong>Primary Download:</strong> Your file transfer should commence shortly.</p>
-                <p><strong>Backup Contingency:</strong> If the download does not initiate, tap the secure link below.</p>
-            </div>
-            
-            <a id="contingency-link" class="purchase-btn contingency-btn" href="#">
-                <span class="btn-text">SECURE FILE ACCESS</span>
-                <div class="btn-slide"></div>
-            </a>
-            
-            <p class="final-note">A permanent download link has also been sent to your email.</p>
-        </div>
-    </div>
-
-
-    <script>
-        // --- CONFIGURATION ---
-        const PAYSTACK_LINK = "https://www.paypal.com/ncp/payment/7NC9DHUY63B98";
-        
-        // **UPDATED DOWNLOAD LINK**
-        // The ID is extracted from your provided URL: 1HT9PLQwdMVINjfNuyJkFuBauYUSOzBb-
-        // The format is changed to force a direct download, not a preview page.
-        const DOWNLOAD_FILE_ID = "1HT9PLQwdMVINjfNuyJkFuBauYUSOzBb-";
-        const CONTINGENCY_DOWNLOAD_LINK = `https://drive.google.com/uc?export=download&id=${DOWNLOAD_FILE_ID}`;
-
-
-        // --- CORE PURCHASE LOGIC (unchanged) ---
-        const purchaseBtn = document.querySelector('.purchase-btn');
-        const btnText = document.querySelector('.btn-text');
-        
-        purchaseBtn.href = PAYSTACK_LINK;
-
-        if (purchaseBtn) {
-            purchaseBtn.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                
-                // 1. Visual Feedback
-                purchaseBtn.style.pointerEvents = 'none';
-                purchaseBtn.style.background = '#cfa24e';
-                purchaseBtn.style.color = '#000';
-                
-                let dots = 0;
-                btnText.innerText = "ESTABLISHING SECURE CONNECTION";
-                
-                const interval = setInterval(() => {
-                    dots = (dots + 1) % 4;
-                    const dotStr = ".".repeat(dots);
-                    btnText.innerText = "ESTABLISHING SECURE CONNECTION" + dotStr;
-                }, 300);
-
-                // 2. Execute Redirect
-                setTimeout(() => {
-                    clearInterval(interval);
-                    btnText.innerText = "ACCESS GRANTED";
-                    
-                    setTimeout(() => {
-                        window.location.href = PAYSTACK_LINK;
-                    }, 500);
-                }, 2000);
-            });
-        }
-
-        // --- SUCCESS HANDLER (MODIFIED TO ONLY DOWNLOAD) ---
-        function handleSuccessScreen(downloadLink) {
-            
-            // 1. Hide storefront content
-            document.getElementById('main-header').style.display = 'none';
-            document.getElementById('store-content').style.display = 'none';
-            document.getElementsByTagName('footer')[0].style.display = 'none';
-
-            // 2. (Optional, if you kept the overlay): Set the backup download link
-            const contingencyBtn = document.getElementById('contingency-link');
-            if (contingencyBtn) {
-                contingencyBtn.href = downloadLink;
-                // document.getElementById('success-overlay').style.display = 'flex'; // COMMENTED OUT: Do not show the "black shenanigans"
-            }
-
-
-            // 3. Immediately trigger the download. THIS IS YOUR HAIL MARY.
-            // The browser will typically show the default browser screen with the download in progress.
-            window.location.href = downloadLink;
-        }
-
-        // --- URL PARAMETER CHECK (The Payment Gateway Redirect Check) ---
-        const urlParams = new URLSearchParams(window.location.search);
-        const status = urlParams.get('status');
-        
-        // If the payment gateway redirects back with ?status=success, trigger the download immediately.
-        if (status === 'success') {
-            handleSuccessScreen(CONTINGENCY_DOWNLOAD_LINK);
-        }
-
-        // --- CURRENCY CONVERTER LOGIC (unchanged) ---
-        const basePriceZAR = 30;
-        const rates = {
-            'US': { code: 'USD', rate: 0.055, symbol: '$' },
-            'GB': { code: 'GBP', rate: 0.043, symbol: '£' },
-            'EU': { code: 'EUR', rate: 0.051, symbol: '€' },
-            'JP': { code: 'JPY', rate: 8.2, symbol: '¥' },
-        };
-        const userLang = navigator.language || navigator.userLanguage; 
-        const region = userLang.split('-')[1] || 'US';
-        const target = rates[region] || rates['US'];
-        const convertedPrice = (basePriceZAR * target.rate).toFixed(2);
-        const displayElement = document.getElementById('currency-converted');
-        if (displayElement) {
-            displayElement.textContent = `(Approx. ${target.symbol}${convertedPrice} ${target.code})`;
-        }
-    </script>
-</body>
-</html>
+                    <h4>
