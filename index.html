@@ -75,4 +75,116 @@
                         <div class="loading-bar delay-bar"><div class="bar-fill"></div></div>
                         <span>ENCRYPTING NEURAL NET...</span>
                     </div>
-                    <h4>
+                    <h4>STRESS ANALYZER</h4>
+                    <p>Biometric logic integration.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 O. OJOBARO. ALL RIGHTS RESERVED.</p>
+        <p class="tiny-text">PROPRIETARY SOFTWARE. UNAUTHORIZED DISTRIBUTION IS PROHIBITED.</p>
+    </footer>
+
+    <div id="success-overlay" class="success-overlay" style="display: none;">
+        <div class="success-panel">
+            <div class="success-header">
+                <div class="status-icon">✅</div>
+                <h2>TRANSACTION COMPLETE</h2>
+            </div>
+            
+            <div class="success-message">
+                <p>Welcome to the R.A.P.I.D. system. Your purchase is verified.</p>
+                <p><strong>Primary Download:</strong> Your file transfer should commence shortly.</p>
+                <p><strong>Backup Contingency:</strong> If the download does not initiate, tap the secure link below.</p>
+            </div>
+            
+            <a id="contingency-link" class="purchase-btn contingency-btn" href="#">
+                <span class="btn-text">SECURE FILE ACCESS</span>
+                <div class="btn-slide"></div>
+            </a>
+            
+            <p class="final-note">A permanent download link has also been sent to your email.</p>
+        </div>
+    </div>
+
+    <script>
+        // --- CONFIGURATION ---
+        const PAYSTACK_LINK = "https://www.paypal.com/ncp/payment/7NC9DHUY63B98";
+        const DOWNLOAD_FILE_ID = "1HT9PLQwdMVINjfNuyJkFuBauYUSOzBb-";
+        const CONTINGENCY_DOWNLOAD_LINK = `https://drive.google.com/uc?export=download&id=${DOWNLOAD_FILE_ID}`;
+
+        // --- CORE PURCHASE LOGIC ---
+        const purchaseBtn = document.querySelector('.purchase-btn');
+        const btnText = document.querySelector('.btn-text');
+        
+        purchaseBtn.href = PAYSTACK_LINK;
+
+        if (purchaseBtn) {
+            purchaseBtn.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                
+                purchaseBtn.style.pointerEvents = 'none';
+                purchaseBtn.style.background = '#cfa24e';
+                purchaseBtn.style.color = '#000';
+                
+                let dots = 0;
+                btnText.innerText = "ESTABLISHING SECURE CONNECTION";
+                
+                const interval = setInterval(() => {
+                    dots = (dots + 1) % 4;
+                    const dotStr = ".".repeat(dots);
+                    btnText.innerText = "ESTABLISHING SECURE CONNECTION" + dotStr;
+                }, 300);
+
+                setTimeout(() => {
+                    clearInterval(interval);
+                    btnText.innerText = "ACCESS GRANTED";
+                    
+                    setTimeout(() => {
+                        window.location.href = PAYSTACK_LINK;
+                    }, 500);
+                }, 2000);
+            });
+        }
+
+        function handleSuccessScreen(downloadLink) {
+            document.getElementById('main-header').style.display = 'none';
+            document.getElementById('store-content').style.display = 'none';
+            document.getElementsByTagName('footer')[0].style.display = 'none';
+
+            const contingencyBtn = document.getElementById('contingency-link');
+            if (contingencyBtn) {
+                contingencyBtn.href = downloadLink;
+            }
+
+            window.location.href = downloadLink;
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+        
+        if (status === 'success') {
+            handleSuccessScreen(CONTINGENCY_DOWNLOAD_LINK);
+        }
+
+        // --- CURRENCY CONVERTER LOGIC ---
+        const basePriceZAR = 30;
+        const rates = {
+            'US': { code: 'USD', rate: 0.055, symbol: '$' },
+            'GB': { code: 'GBP', rate: 0.043, symbol: '£' },
+            'EU': { code: 'EUR', rate: 0.051, symbol: '€' },
+            'JP': { code: 'JPY', rate: 8.2, symbol: '¥' },
+        };
+        const userLang = navigator.language || navigator.userLanguage; 
+        const region = userLang.split('-')[1] || 'US';
+        const target = rates[region] || rates['US'];
+        const convertedPrice = (basePriceZAR * target.rate).toFixed(2);
+        const displayElement = document.getElementById('currency-converted');
+        if (displayElement) {
+            displayElement.textContent = `(Approx. ${target.symbol}${convertedPrice} ${target.code})`;
+        }
+    </script>
+</body>
+</html>
