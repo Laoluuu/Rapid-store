@@ -3,86 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ojobaro</title>
+    <title>R.A.P.I.D.(i) | Ojobaro Inc.</title>
     
     <!-- Browser Tab Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
 
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Microsoft Clarity Analytics -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "zandwz2r1j");
+    </script>
 </head>
 <body>
 
     <div class="geo-bg"></div>
     <div class="geo-bg-2"></div>
 
-    <header id="main-header" style="padding: 10px 40px; align-items: center; min-height: 220px;">
+    <header id="main-header">
         <div class="logo">
-            <img src="header-logo.png" alt="Ojobaro Inc. Logo" style="height: 200px; width: auto; vertical-align: middle; display: block;">
+            <img src="header-logo.png" alt="Ojobaro Inc. Logo" class="header-logo-img" style="height: 65px;">
         </div>
         <nav>
             <a href="#core">CORE</a>
-            <a href="#modules">MODULES</a>
+            <a href="#showcase">CAPABILITIES</a>
+            <a href="#pricing">TIERS</a>
         </nav>
     </header>
 
     <main id="store-content">
+        <!-- HERO SECTION -->
         <section id="core" class="hero-section">
-            <div class="glass-panel">
+            <div class="glass-panel main-flagship">
+                <div class="badge-flagship">FLAGSHIP EDITION</div>
                 <div class="glitch-wrapper">
                     <h1 class="hero-title" data-text="R.A.P.I.D.(i)">R.A.P.I.D.(i)</h1>
                 </div>
-                <h2 class="hero-subtitle">SUMMER 25' EDITION</h2>
+                <h2 class="hero-subtitle">SUMMER 26' EDITION</h2>
                 
-                <div class="windows-notice" style="display: flex; align-items: center; justify-content: center; gap: 14px; margin: 18px 0; font-weight: 400; font-size: 1.1rem;">
-                    <span>Windows OS Exclusive</span>
-                    <img src="windows-logo.png" alt="Windows Logo" style="height: 48px; width: auto; vertical-align: middle;">
+                <div class="windows-notice">
+                    <span>Windows OS Exclusive &bull; Local & Offline &bull; Zero Data Tracking</span>
+                    <img src="windows-logo.png" alt="Windows Logo" class="win-logo">
                 </div>
                 
                 <div class="product-details">
-                    <p>A personal AI/LLM and assistant software interface designed to run locally, offline and without data tracking.</p>
-                    <p>Features: handles tasks like scheduling, reminders, stress management and calculations alongside AI/LLM functions.</p>
+                    <p class="hero-hook">A.I. that doesn't need the internet.</p>
+                    <p class="hero-copy">Runs locally, works offline, protects your privacy and expands through downloadable modules. No subscriptions. No unnecessary data collection. Yours to control.</p>
+                    <p class="hero-features">Features: handles tasks like scheduling, reminders, stress management and calculations alongside A.I./LLM functions.</p>
                 </div>
 
-                <div class="price-tag">
-                    <span id="price-display">ZAR 30.00</span>
-                    <span id="currency-converted" class="sub-price"></span>
-                </div>
+                <!-- VALUE ANCHOR PROMO CONTAINER -->
+                <div class="bundle-hero-card">
+                    <div class="bundle-badge">RECOMMENDED COMBINATION</div>
+                    <h3>SUMMER 26' BUNDLE</h3>
+                    <p class="bundle-desc">Includes <strong>Summer 26' Edition</strong> + <strong>Personal Assistant & Task Cleaner DLC</strong></p>
+                    
+                    <div class="price-container">
+                        <span class="price-strike">R45.00</span>
+                        <span class="price-main">ZAR 40.00</span>
+                        <span class="price-save">SAVE R5.00</span>
+                    </div>
+                    <div class="sub-price currency-converted" data-zar="40"></div>
 
-                <a href="https://www.paypal.com/ncp/payment/7NC9DHUY63B98" class="purchase-btn" id="download-btn">
-                    <span class="btn-text">INITIALIZE PURCHASE</span>
-                    <div class="btn-slide"></div>
-                </a>
-
-                <div class="policy-note">
-                    *Secure Digital Delivery.
+                    <a href="https://www.paypal.com/ncp/payment/ERTJUR2VSJBKL" class="purchase-btn flagship-btn" data-paypal="PAYPAL_LINK_BUNDLE">
+                        <span class="btn-text">GET THE 26' PA BUNDLE — R40</span>
+                        <div class="btn-slide"></div>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section id="modules" class="dlc-section">
-            <h3 class="section-header">EXPANSION MODULES</h3>
+        <!-- TECH STACK TICKER / TRUST BANNER -->
+        <div class="tech-ticker-container">
+            <div class="tech-ticker-label">POWERED BY NATIVE TECH STACK</div>
+            <div class="tech-ticker-wrapper">
+                <div class="tech-ticker-track">
+                    <!-- FIRST SET OF LOGOS -->
+                    <div class="tech-badge">
+                        <img src="Black and Grey Clean Modern Minimalist Creative Technology Logo (2).png" alt="Python 3.13">
+                        <span>Python 3.13</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="Black and Grey Clean Modern Minimalist Creative Technology Logo (1).png" alt="Electron Framework">
+                        <span>Electron</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="SQLite370.svg" alt="SQLite 3 Database">
+                        <span>SQLite 3</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="windows-logo.png" alt="Windows OS Architecture">
+                        <span>Windows OS</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="logo.png" alt="RAPID Task Engine">
+                        <span>RAPID Task Engine</span>
+                    </div>
+
+                    <!-- DUPLICATE SET FOR INFINITE CONTINUOUS SCROLL -->
+                    <div class="tech-badge">
+                        <img src="Black and Grey Clean Modern Minimalist Creative Technology Logo (2).png" alt="Python 3.13">
+                        <span>Python 3.13</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="Black and Grey Clean Modern Minimalist Creative Technology Logo (1).png" alt="Electron Framework">
+                        <span>Electron</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="SQLite370.svg" alt="SQLite 3 Database">
+                        <span>SQLite 3</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="windows-logo.png" alt="Windows OS Architecture">
+                        <span>Windows OS</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="logo.png" alt="RAPID Task Engine">
+                        <span>RAPID Task Engine</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISUAL SHOWCASE SECTION -->
+        <section id="showcase" class="showcase-section">
+            <h3 class="section-header">INTERFACE SHOWCASE</h3>
+            <div class="showcase-container">
+                <div class="showcase-controls">
+                    <button class="showcase-btn active" data-key="cleaner" onclick="selectPreview('cleaner', event)">Expired Task Cleaner (DLC)</button>
+                    <button class="showcase-btn" data-key="checkin" onclick="selectPreview('checkin', event)">Daily PA Check-In (DLC)</button>
+                    <button class="showcase-btn" data-key="emergency" onclick="selectPreview('emergency', event)">Emergency Protocol (DLC)</button>
+                    <button class="showcase-btn" data-key="dlc_verify" onclick="selectPreview('dlc_verify', event)">DLC Verification (DLC)</button>
+                    <button class="showcase-btn" data-key="eisenhower" onclick="selectPreview('eisenhower', event)">Eisenhower Matrix</button>
+                    <button class="showcase-btn" data-key="scheduling" onclick="selectPreview('scheduling', event)">Schedule Management</button>
+                    <button class="showcase-btn" data-key="reminders" onclick="selectPreview('reminders', event)">Reminder Processing</button>
+                    <button class="showcase-btn" data-key="logic" onclick="selectPreview('logic', event)">Calculations & Math</button>
+                    <button class="showcase-btn" data-key="light" onclick="selectPreview('light', event)">Light Mode Engine</button>
+                    <button class="showcase-btn" data-key="dark" onclick="selectPreview('dark', event)">Dark Mode Engine</button>
+                </div>
+                <div class="showcase-viewport" style="position: relative; cursor: pointer;" onclick="openFullscreenModal()">
+                    <div style="position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.7); color: #cfa24e; padding: 6px 12px; font-size: 0.75rem; border: 1px solid #cfa24e; font-family: 'Orbitron', sans-serif; pointer-events: none; z-index: 5;">
+                        CLICK TO EXPAND &#x26F6;
+                    </div>
+                    <img id="preview-img" src="Screenshot (667).png" alt="Expired Task Cleaner DLC View">
+                    <div class="showcase-caption" id="preview-caption">Expired Task Cleaner DLC: Automatically scans reminders and schedules for old tasks, enabling 1-click archival or permanent purging.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING MATRIX GRID -->
+        <section id="pricing" class="dlc-section">
+            <h3 class="section-header">EDITIONS & EXPANSIONS</h3>
             
             <div class="dlc-grid">
-                <div class="dlc-card locked">
-                    <div class="lock-overlay">
-                        <div class="lock-icon">🔒</div>
-                        <div class="loading-bar"><div class="bar-fill"></div></div>
-                        <span>COMPILING ASSETS...</span>
+                
+                <!-- BUNDLE TIER -->
+                <div class="dlc-card highlighted-card">
+                    <div class="tier-tag">BEST VALUE</div>
+                    <h4>SUMMER 26' PA BUNDLE</h4>
+                    <p class="card-desc">Full Summer 26' Edition + Personal Assistant & Task Cleaner Engine DLC combined.</p>
+                    <div class="card-price">
+                        <span class="amount">R40.00</span>
+                        <span class="currency-converted sub-price" data-zar="40"></span>
                     </div>
-                    <h4>SCHEDULER KERNEL</h4>
-                    <p>Advanced heuristics for time management.</p>
+                    <a href="https://www.paypal.com/ncp/payment/ERTJUR2VSJBKL" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_BUNDLE">
+                        <span class="btn-text">PURCHASE BUNDLE (R40)</span>
+                        <div class="btn-slide"></div>
+                    </a>
                 </div>
 
-                <div class="dlc-card locked">
-                    <div class="lock-overlay">
-                        <div class="lock-icon">🔒</div>
-                        <div class="loading-bar delay-bar"><div class="bar-fill"></div></div>
-                        <span>ENCRYPTING NEURAL NET...</span>
+                <!-- SUMMER 26 STANDALONE -->
+                <div class="dlc-card">
+                    <h4>SUMMER 26' EDITION</h4>
+                    <p class="card-desc">Standalone Desktop Assistant. Offline-capable A.I. task processing.</p>
+                    <div class="card-price">
+                        <span class="amount">R30.00</span>
+                        <span class="currency-converted sub-price" data-zar="30"></span>
                     </div>
-                    <h4>STRESS ANALYZER</h4>
-                    <p>Biometric logic integration.</p>
+                    <a href="https://www.paypal.com/ncp/payment/YPF4LMHE3W456" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_26">
+                        <span class="btn-text">PURCHASE 26' EDITION (R30)</span>
+                        <div class="btn-slide"></div>
+                    </a>
                 </div>
+
+                <!-- PA DLC STANDALONE -->
+                <div class="dlc-card">
+                    <h4>PA & TASK CLEANER DLC</h4>
+                    <p class="card-desc">Personal Assistant & Task Cleaner Module add-on for existing core deployments.</p>
+                    <div class="card-price">
+                        <span class="amount">R15.00</span>
+                        <span class="currency-converted sub-price" data-zar="15"></span>
+                    </div>
+                    <a href="https://www.paypal.com/ncp/payment/DFXA6447EU4WA" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_PA">
+                        <span class="btn-text">PURCHASE PA DLC (R15)</span>
+                        <div class="btn-slide"></div>
+                    </a>
+                </div>
+
+                <!-- SUMMER 25 LEGACY -->
+                <div class="dlc-card legacy-card">
+                    <div class="tier-tag legacy-tag">LEGACY ENTRY</div>
+                    <h4>SUMMER 25' EDITION</h4>
+                    <p class="card-desc">Previous summer release core interface. Baseline offline functionality.</p>
+                    <div class="card-price">
+                        <span class="amount">R20.00</span>
+                        <span class="currency-converted sub-price" data-zar="20"></span>
+                    </div>
+                    <a href="https://www.paypal.com/ncp/payment/7NC9DHUY63B98" class="purchase-btn card-btn secondary-btn" data-paypal="https://www.paypal.com/ncp/payment/7NC9DHUY63B98">
+                        <span class="btn-text">PURCHASE 25' EDITION (R20)</span>
+                        <div class="btn-slide"></div>
+                    </a>
+                </div>
+
             </div>
         </section>
     </main>
@@ -92,93 +229,227 @@
         <p class="tiny-text">PROPRIETARY SOFTWARE. UNAUTHORIZED DISTRIBUTION IS PROHIBITED.</p>
     </footer>
 
+    <!-- FULLSCREEN IMAGE LIGHTBOX MODAL WITH ARROWS -->
+    <div id="image-modal" class="image-modal" style="display: none;">
+        <span class="modal-close" onclick="closeFullscreenModal()">&times;</span>
+        
+        <!-- NAVIGATION ARROWS -->
+        <button class="modal-arrow modal-arrow-left" onclick="navigateModal(-1)">&#10094;</button>
+        <button class="modal-arrow modal-arrow-right" onclick="navigateModal(1)">&#10095;</button>
+        
+        <img class="modal-content" id="modal-img">
+        <div id="modal-caption" class="modal-caption-text"></div>
+    </div>
+
+    <!-- SUCCESS OVERLAY -->
     <div id="success-overlay" class="success-overlay" style="display: none;">
         <div class="success-panel">
             <div class="success-header">
-                <h2>TRANSACTION COMPLETE</h2>
+                <h2>TRANSACTION VERIFIED</h2>
             </div>
             
             <div class="success-message">
-                <p>Welcome to the R.A.P.I.D. system. Your purchase is verified. On behalf of Mr. Ojobaro, thank you for your purchase!</p>
-                <p><strong>Primary Download:</strong> Your file transfer should commence shortly.</p>
-                <p><strong>Backup Contingency:</strong> If the download does not initiate, tap the secure link below.</p>
+                <p>Welcome to R.A.P.I.D.(i). On behalf of Mr. Ojobaro, thank you for your order.</p>
+                <p><strong>Direct Download:</strong> Your package transfer is starting automatically.</p>
+                <p><strong>Contingency Link:</strong> If your browser blocks the download, click the secure access link below.</p>
             </div>
             
             <a id="contingency-link" class="purchase-btn contingency-btn" href="#">
-                <span class="btn-text">SECURE FILE ACCESS</span>
+                <span class="btn-text">INITIALIZE MANUAL FILE TRANSFER</span>
                 <div class="btn-slide"></div>
             </a>
         </div>
     </div>
 
     <script>
-        // --- CONFIGURATION ---
-        const PAYPAL_LINK = "https://www.paypal.com/ncp/payment/7NC9DHUY63B98";
-        const CONTINGENCY_DOWNLOAD_LINK = "https://github.com/Laoluuu/Rapid-store/releases/download/v1.0.0/R.A.P.I.D.i.zip";
+        // --- PAYPAL LINK CONFIGURATION ---
+        const PAYPAL_LINKS = {
+            PAYPAL_LINK_BUNDLE: "https://www.paypal.com/ncp/payment/ERTJUR2VSJBKL", 
+            PAYPAL_LINK_26: "https://www.paypal.com/ncp/payment/YPF4LMHE3W456",     
+            PAYPAL_LINK_PA: "https://www.paypal.com/ncp/payment/DFXA6447EU4WA",     
+            "https://www.paypal.com/ncp/payment/7NC9DHUY63B98": "https://www.paypal.com/ncp/payment/7NC9DHUY63B98" 
+        };
 
-        // --- PURCHASE FLOW LOGIC ---
-        const purchaseBtn = document.getElementById('download-btn');
-        const btnText = document.querySelector('.btn-text');
+        // --- DIRECT GITHUB ACCESS CONTINGENCY MAP ---
+        const DOWNLOAD_LINKS = {
+            bundle: "https://github.com/Laoluuu/Rapid-store/releases/download/26PABundle1.0.0/RAPID.26.PA.Bundle.zip",
+            rapid26: "https://github.com/Laoluuu/Rapid-store/releases/download/R_26_v1.0.0/RAPID.zip",
+            padlc: "https://github.com/Laoluuu/Rapid-store/releases/download/PADLCv1.0.0/Personal.Assistant.DLC.zip",
+            rapid25: "https://github.com/Laoluuu/Rapid-store/releases/download/v1.0.0/R.A.P.I.D.i.zip"
+        };
 
-        if (purchaseBtn) {
-            purchaseBtn.href = PAYPAL_LINK;
+        // --- CORE & PA DLC SHOWCASE MATRIX ---
+        const showcaseKeys = ['cleaner', 'checkin', 'emergency', 'dlc_verify', 'eisenhower', 'scheduling', 'reminders', 'logic', 'light', 'dark'];
+        let currentShowcaseIndex = 0;
 
-            purchaseBtn.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                
-                purchaseBtn.style.pointerEvents = 'none';
-                purchaseBtn.style.background = '#cfa24e';
-                purchaseBtn.style.color = '#000';
-                
-                let dots = 0;
-                btnText.innerText = "ESTABLISHING SECURE CONNECTION";
-                
-                const interval = setInterval(() => {
-                    dots = (dots + 1) % 4;
-                    const dotStr = ".".repeat(dots);
-                    btnText.innerText = "ESTABLISHING SECURE CONNECTION" + dotStr;
-                }, 300);
+        const showcaseData = {
+            cleaner: {
+                img: "Screenshot (667).png",
+                caption: "Expired Task Cleaner DLC: Automatically scans reminders and schedules for old tasks, enabling 1-click archival or permanent purging."
+            },
+            checkin: {
+                img: "Screenshot (666).png",
+                caption: "Daily PA Check-In DLC: Autonomous check-in system verifying active schedules and prompting for missing task reminders."
+            },
+            emergency: {
+                img: "Screenshot (669).png",
+                caption: "Unforeseen Event Protocol DLC: Emergency protocol enabling real-time adjustments when disruptions happen."
+            },
+            dlc_verify: {
+                img: "Screenshot 2026-11-06 180954.png",
+                caption: "DLC Verification & Management: Internal engine status displaying loaded and verified expansion modules."
+            },
+            eisenhower: {
+                img: "Screenshot (690).png",
+                caption: "Eisenhower Decision Assistant: Generates a 4-quadrant decision matrix (Do, Plan, Delegate, Eliminate) when handling stress queries."
+            },
+            scheduling: {
+                img: "Screenshot (687).png",
+                caption: "Autonomous Scheduling: Checks calendar databases and assigns tasks to open days."
+            },
+            reminders: {
+                img: "Screenshot (688).png",
+                caption: "Reminder Management: Handles, lists, and removes items from the SQLite reminders database."
+            },
+            logic: {
+                img: "Screenshot (692).png",
+                caption: "Calculations Engine: Parses math strings directly for rapid execution."
+            },
+            light: {
+                img: "Screenshot (671).png",
+                caption: "Light Mode View: Default high-contrast light theme engine interface."
+            },
+            dark: {
+                img: "Screenshot (678).png",
+                caption: "Dark Mode View: Low-light theme option for dark environments."
+            }
+        };
 
-                setTimeout(() => {
-                    clearInterval(interval);
-                    btnText.innerText = "ACCESS GRANTED";
-                    
-                    setTimeout(() => {
-                        window.location.href = PAYPAL_LINK;
-                    }, 500);
-                }, 2000);
+        function selectPreview(key, evt) {
+            currentShowcaseIndex = showcaseKeys.indexOf(key);
+            const img = document.getElementById('preview-img');
+            const caption = document.getElementById('preview-caption');
+            
+            if (img && showcaseData[key]) {
+                img.src = showcaseData[key].img;
+                caption.textContent = showcaseData[key].caption;
+            }
+            
+            const buttons = document.querySelectorAll('.showcase-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-key') === key) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
             });
         }
 
-        function handleSuccessScreen(downloadLink) {
+        // --- FULLSCREEN MODAL & CAROUSEL NAVIGATION ---
+        function openFullscreenModal() {
+            const modal = document.getElementById('image-modal');
+            modal.style.display = "flex";
+            updateModalContent();
+        }
+
+        function closeFullscreenModal() {
+            document.getElementById('image-modal').style.display = "none";
+        }
+
+        function updateModalContent() {
+            const key = showcaseKeys[currentShowcaseIndex];
+            const modalImg = document.getElementById('modal-img');
+            const modalCaption = document.getElementById('modal-caption');
+            
+            if (showcaseData[key]) {
+                modalImg.src = showcaseData[key].img;
+                modalCaption.textContent = showcaseData[key].caption;
+                selectPreview(key);
+            }
+        }
+
+        function navigateModal(direction) {
+            currentShowcaseIndex = (currentShowcaseIndex + direction + showcaseKeys.length) % showcaseKeys.length;
+            updateModalContent();
+        }
+
+        // --- KEYBOARD CONTROLS FOR MODAL (ARROWS + A/D FOR GAMERS) ---
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('image-modal');
+            if (modal.style.display === "flex") {
+                if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+                    navigateModal(1);
+                } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+                    navigateModal(-1);
+                } else if (e.key === 'Escape') {
+                    closeFullscreenModal();
+                }
+            }
+        });
+
+        // --- BUTTON HANDLING & PAYPAL REDIRECT ---
+        const purchaseButtons = document.querySelectorAll('.purchase-btn:not(.contingency-btn)');
+        
+        purchaseButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                
+                const targetPaypalKey = btn.getAttribute('data-paypal');
+                const destination = PAYPAL_LINKS[targetPaypalKey] || targetPaypalKey;
+                const textSpan = btn.querySelector('.btn-text');
+
+                btn.style.pointerEvents = 'none';
+                btn.style.background = '#cfa24e';
+                btn.style.color = '#000';
+                
+                let dots = 0;
+                textSpan.innerText = "ESTABLISHING SECURE GATEWAY";
+                
+                const interval = setInterval(() => {
+                    dots = (dots + 1) % 4;
+                    textSpan.innerText = "ESTABLISHING SECURE GATEWAY" + ".".repeat(dots);
+                }, 250);
+
+                setTimeout(() => {
+                    clearInterval(interval);
+                    textSpan.innerText = "GATEWAY CONNECTED";
+                    setTimeout(() => {
+                        window.location.href = destination;
+                    }, 400);
+                }, 1400);
+            });
+        });
+
+        // --- POST-PURCHASE REDIRECT & AUTO DOWNLOAD ---
+        function handleSuccessScreen(downloadUrl) {
             document.getElementById('main-header').style.display = 'none';
             document.getElementById('store-content').style.display = 'none';
-            document.getElementsByTagName('footer')[0].style.display = 'none';
+            document.querySelector('footer').style.display = 'none';
 
             const overlay = document.getElementById('success-overlay');
             const contingencyBtn = document.getElementById('contingency-link');
             
             if (contingencyBtn) {
-                contingencyBtn.href = downloadLink;
+                contingencyBtn.href = downloadUrl;
             }
 
             if (overlay) {
                 overlay.style.display = 'flex';
             }
 
-            window.location.href = downloadLink;
+            window.location.href = downloadUrl;
         }
 
-        // --- POST-PURCHASE REDIRECT LISTENER ---
         const urlParams = new URLSearchParams(window.location.search);
         const status = urlParams.get('status');
+        const item = urlParams.get('item') || 'bundle';
         
         if (status === 'success') {
-            handleSuccessScreen(CONTINGENCY_DOWNLOAD_LINK);
+            const targetDownload = DOWNLOAD_LINKS[item] || DOWNLOAD_LINKS.bundle;
+            handleSuccessScreen(targetDownload);
         }
 
-        // --- CURRENCY CONVERTER LOGIC ---
-        const basePriceZAR = 30;
+        // --- REAL-TIME GLOBAL CURRENCY CONVERTER ---
         const rates = {
             'US': { code: 'USD', rate: 0.055, symbol: '$' },
             'GB': { code: 'GBP', rate: 0.043, symbol: '£' },
@@ -187,12 +458,15 @@
         };
         const userLang = navigator.language || navigator.userLanguage; 
         const region = userLang.split('-')[1] || 'US';
-        const target = rates[region] || rates['US'];
-        const convertedPrice = (basePriceZAR * target.rate).toFixed(2);
-        const displayElement = document.getElementById('currency-converted');
-        if (displayElement) {
-            displayElement.textContent = `(Approx. ${target.symbol}${convertedPrice} ${target.code})`;
-        }
+        const targetCurrency = rates[region] || rates['US'];
+
+        document.querySelectorAll('.currency-converted').forEach(el => {
+            const zar = parseFloat(el.getAttribute('data-zar'));
+            if (zar) {
+                const converted = (zar * targetCurrency.rate).toFixed(2);
+                el.textContent = `(Approx. ${targetCurrency.symbol}${converted} ${targetCurrency.code})`;
+            }
+        });
     </script>
 </body>
 </html>

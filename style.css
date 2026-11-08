@@ -5,167 +5,575 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: #f4f4f4; /* Stark "Transformers" White/Grey */
-    color: #111;
+    background-color: #0b0c10;
+    color: #e0e0e0;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
     min-height: 100vh;
 }
 
-/* --- BACKGROUND GEOMETRY (Deus Ex Vibes) --- */
+/* --- PREVENT HEADER OVERLAP ON SCROLL TARGETS --- */
+section {
+    scroll-margin-top: 110px;
+}
+
+/* --- BACKGROUND GEOMETRY --- */
 .geo-bg {
     position: absolute;
     top: 0;
     right: 0;
     width: 60vw;
-    height: 100vh;
-    background: linear-gradient(135deg, transparent 50%, #e0e0e0 50%);
+    height: 120vh;
+    background: linear-gradient(135deg, transparent 40%, rgba(207, 162, 78, 0.05) 100%);
     z-index: -1;
     clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
 }
 
 .geo-bg-2 {
     position: absolute;
-    bottom: -10vh;
+    bottom: 0;
     left: -10vw;
     width: 50vw;
-    height: 50vh;
-    background: rgba(207, 162, 78, 0.1); /* Deus Ex Gold, very faint */
+    height: 60vh;
+    background: rgba(207, 162, 78, 0.03);
     transform: rotate(15deg);
     z-index: -1;
     clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
 }
 
-/* --- HEADER --- */
+/* --- LIGHTWEIGHT HARDWARE-ACCELERATED HEADER --- */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 50px;
+    padding: 12px 40px;
     letter-spacing: 2px;
+    background: #0b0c10;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transform: translateZ(0);
 }
 
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.accent {
-    color: #cfa24e; /* Gold Accent */
+.header-logo-img {
+    height: 65px;
+    width: auto;
+    display: block;
 }
 
 nav a {
     text-decoration: none;
-    color: #666;
+    color: #999;
     margin-left: 30px;
-    font-size: 0.8rem;
-    transition: color 0.3s;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 0.2s;
 }
 
 nav a:hover {
-    color: #111;
+    color: #cfa24e;
     border-bottom: 1px solid #cfa24e;
 }
 
 /* --- MAIN LAYOUT --- */
 main {
-    max-width: 1200px;
+    max-width: 1240px;
     margin: 0 auto;
-    padding: 50px 20px;
+    padding: 20px 20px 80px 20px;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 70px;
 }
 
-/* --- HERO SECTION (Glass Panel) --- */
+/* --- HERO SECTION --- */
 .hero-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 0;
+    padding: 10px 0;
 }
 
 .glass-panel {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px); /* The "Frosted Glass" look */
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
-    padding: 60px 80px;
+    background: rgba(20, 22, 28, 0.85);
+    border: 1px solid rgba(207, 162, 78, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    padding: 40px 50px;
     text-align: center;
     position: relative;
-    max-width: 700px;
+    width: 100%;
+    max-width: 850px;
+    border-radius: 4px;
 }
 
-/* Decoration line */
-.glass-panel::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
+.badge-flagship {
+    display: inline-block;
     background: #cfa24e;
+    color: #000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
 }
 
 .hero-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 4rem;
-    color: #111;
-    letter-spacing: 5px;
-    margin-bottom: 10px;
-    position: relative;
+    font-size: 3.5rem;
+    color: #fff;
+    letter-spacing: 6px;
+    margin-bottom: 5px;
 }
 
 .hero-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
     letter-spacing: 8px;
-    color: #666;
-    margin-bottom: 40px;
-    font-weight: 300;
+    color: #cfa24e;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
-.product-details p {
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
-
-/* --- PRICE TAG --- */
-.price-tag {
-    margin: 40px 0;
+.windows-notice {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 15px 0 25px 0;
+    font-size: 0.95rem;
+    color: #ccc;
 }
 
-#price-display {
+.win-logo {
+    height: 48px;
+    width: auto;
+    vertical-align: middle;
+}
+
+/* --- HERO COPY FORMATTING --- */
+.hero-hook {
     font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
-    color: #111;
+    font-size: 1.25rem;
+    color: #fff;
+    margin-bottom: 15px !important;
+    font-weight: 700;
+}
+
+.hero-copy {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px !important;
+}
+
+.hero-features {
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 25px !important;
+}
+
+/* --- BUNDLE HERO CARD --- */
+.bundle-hero-card {
+    background: rgba(10, 11, 14, 0.95);
+    border: 2px solid #cfa24e;
+    padding: 30px;
+    border-radius: 4px;
+    position: relative;
+    margin-top: 20px;
+    box-shadow: 0 10px 30px rgba(207, 162, 78, 0.15);
+}
+
+.bundle-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #cfa24e;
+    color: #000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 900;
+    padding: 2px 14px;
+    letter-spacing: 1.5px;
+}
+
+.bundle-hero-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.bundle-desc {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.price-strike {
+    text-decoration: line-through;
+    color: #666;
+    font-size: 1.2rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.price-main {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.price-save {
+    background: #10B981;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 2px;
 }
 
 .sub-price {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #888;
-    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
-/* --- BUY BUTTON (Assassin's Creed Interaction) --- */
-.purchase-btn {
-    display: inline-block;
+/* --- TECH STACK TICKER / TRUST BANNER --- */
+.tech-ticker-container {
+    width: 100%;
+    background: rgba(15, 17, 23, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    padding: 16px 20px;
+    text-align: center;
+    overflow: hidden;
     position: relative;
-    padding: 15px 40px;
-    background: #111;
+}
+
+.tech-ticker-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: #cfa24e;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.tech-ticker-wrapper {
+    display: flex;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.tech-ticker-track {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    white-space: nowrap;
+    animation: scrollTicker 25s linear infinite;
+    transform: translateZ(0);
+}
+
+.tech-ticker-container:hover .tech-ticker-track {
+    animation-play-state: paused;
+}
+
+.tech-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 8px 16px;
+    border-radius: 4px;
+    filter: opacity(0.85);
+    transition: filter 0.3s, border-color 0.3s;
+}
+
+.tech-badge:hover {
+    filter: opacity(1);
+    border-color: rgba(207, 162, 78, 0.4);
+}
+
+.tech-badge img {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+}
+
+.tech-badge span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #bbb;
+    letter-spacing: 1px;
+}
+
+@keyframes scrollTicker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- SHOWCASE SECTION --- */
+.section-header {
+    text-align: left;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    color: #cfa24e;
+    letter-spacing: 3px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+}
+
+.showcase-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.showcase-controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.showcase-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    padding: 10px 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.showcase-btn.active, .showcase-btn:hover {
+    background: #cfa24e;
+    color: #000;
+    border-color: #cfa24e;
+}
+
+.showcase-viewport {
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+}
+
+.showcase-viewport img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+}
+
+.showcase-caption {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: #888;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* --- FULLSCREEN LIGHTBOX MODAL & NAVIGATION ARROWS --- */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.94);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border: 1px solid #cfa24e;
+    box-shadow: 0 0 30px rgba(207, 162, 78, 0.3);
+}
+
+.modal-caption-text {
+    margin-top: 15px;
+    color: #ddd;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    text-align: center;
+    max-width: 800px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #cfa24e;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 10001;
+}
+
+.modal-close:hover {
     color: #fff;
+}
+
+.modal-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(11, 12, 16, 0.7);
+    color: #cfa24e;
+    border: 1px solid #cfa24e;
+    font-size: 2rem;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    z-index: 10001;
+    font-family: sans-serif;
+}
+
+.modal-arrow:hover {
+    background: #cfa24e;
+    color: #000;
+}
+
+.modal-arrow-left {
+    left: 25px;
+}
+
+.modal-arrow-right {
+    right: 25px;
+}
+
+/* --- PRICING MATRIX GRID --- */
+.dlc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.dlc-card {
+    background: rgba(20, 22, 28, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.dlc-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(207, 162, 78, 0.5);
+}
+
+.highlighted-card {
+    background: rgba(25, 28, 38, 0.95);
+    border: 2px solid #cfa24e;
+}
+
+.tier-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #cfa24e;
+    color: #000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 4px 10px;
+}
+
+.legacy-tag {
+    background: #444;
+    color: #ccc;
+}
+
+.dlc-card h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.card-desc {
+    font-size: 0.85rem;
+    color: #aaa;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.card-price {
+    margin-bottom: 20px;
+}
+
+.card-price .amount {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+}
+
+/* --- BUTTON STYLING --- */
+.purchase-btn {
+    display: block;
+    width: 100%;
+    position: relative;
+    padding: 16px 20px;
+    background: #cfa24e;
+    color: #000;
+    text-align: center;
     text-decoration: none;
     font-family: 'Orbitron', sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     overflow: hidden;
-    transition: color 0.4s;
+    transition: color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.flagship-btn {
+    padding: 18px 30px;
+    font-size: 0.95rem;
+}
+
+.secondary-btn {
+    background: #222;
+    color: #eee;
+    border: 1px solid #444;
 }
 
 .btn-slide {
@@ -174,8 +582,8 @@ main {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: #cfa24e; /* Gold slide */
-    transition: left 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    background: #fff;
+    transition: left 0.3s ease;
     z-index: 0;
 }
 
@@ -192,188 +600,78 @@ main {
     color: #000;
 }
 
-.policy-note {
-    margin-top: 20px;
-    font-size: 0.6rem;
-    color: #aaa;
-    text-transform: uppercase;
-}
-
-/* --- DLC SECTION (Mission Locked) --- */
-.section-header {
-    text-align: left;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.5rem;
-    color: #ccc;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-}
-
-.dlc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.dlc-card {
-    background: #fff;
-    border: 1px solid #eee;
-    padding: 30px;
-    position: relative;
-    overflow: hidden;
-    opacity: 0.7;
-    transition: transform 0.3s;
-}
-
-.dlc-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-/* The Locked Overlay (AC Unity Animus Style) */
-.lock-overlay {
-    margin-bottom: 20px;
-    color: #888;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.loading-bar {
-    width: 100%;
-    height: 2px;
-    background: #eee;
-    position: relative;
-    overflow: hidden;
-}
-
-.bar-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 50%;
-    background: #cfa24e;
-    animation: load 2s infinite ease-in-out;
-}
-
-.delay-bar .bar-fill {
-    animation-delay: 0.5s;
-    width: 30%;
-}
-
-@keyframes load {
-    0% { left: -50%; }
-    100% { left: 100%; }
-}
-
-.dlc-card h4 {
-    font-family: 'Orbitron', sans-serif;
-    color: #ccc;
-}
-
 /* --- FOOTER --- */
 footer {
     text-align: center;
-    padding: 50px;
-    color: #888;
+    padding: 40px;
+    color: #666;
     font-size: 0.8rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .tiny-text {
-    font-size: 0.6rem;
-    margin-top: 10px;
+    font-size: 0.65rem;
+    margin-top: 8px;
     letter-spacing: 1px;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-    .hero-title { font-size: 2.5rem; }
-    .glass-panel { padding: 40px 20px; }
-}
-
-/* ========================================================================= */
-/* --- SUCCESS OVERLAY (Mission Complete Aesthetic) --- */
-/* ========================================================================= */
+/* --- SUCCESS OVERLAY --- */
 .success-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95); /* Nearly black background */
-    display: none; /* Hidden by default, shown by JS */
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    /* Divergent Title Screen Effect */
     font-family: 'Orbitron', sans-serif;
-    color: #cfa24e; /* Gold text */
-    animation: fadein 1s;
+    color: #cfa24e;
 }
 
 .success-panel {
-    background: rgba(25, 25, 25, 0.9);
-    border: 2px solid #cfa24e; /* Gold frame */
-    padding: 60px 80px;
+    background: #111319;
+    border: 2px solid #cfa24e;
+    padding: 50px 60px;
     text-align: center;
     max-width: 600px;
-    box-shadow: 0 0 50px rgba(207, 162, 78, 0.5);
-    animation: scale-up 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.success-header {
-    margin-bottom: 30px;
-}
-
-.status-icon {
-    font-size: 3rem;
-    line-height: 1;
-    margin-bottom: 10px;
+    box-shadow: 0 0 50px rgba(207, 162, 78, 0.4);
 }
 
 .success-panel h2 {
-    font-size: 2rem;
-    letter-spacing: 5px;
+    font-size: 1.8rem;
+    letter-spacing: 4px;
     color: #fff;
-    text-shadow: 0 0 5px #cfa24e;
+    margin-bottom: 20px;
 }
 
 .success-message p {
     color: #aaa;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
 .contingency-btn {
-    margin-top: 30px;
+    margin-top: 25px;
 }
 
-.final-note {
-    margin-top: 20px;
-    font-size: 0.7rem;
-    color: #555;
-    font-family: 'Montserrat', sans-serif;
-}
-
-/* Success Screen Animations */
-@keyframes fadein {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-@keyframes scale-up {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-/* Ensure original header/main content is hidden when overlay is shown */
-.success-overlay:not([style*="display: none"]) ~ header,
-.success-overlay:not([style*="display: none"]) ~ main,
-.success-overlay:not([style*="display: none"]) ~ footer {
-    display: none !important;
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    header { padding: 10px 20px; }
+    .header-logo-img { height: 50px; }
+    .hero-title { font-size: 2.4rem; }
+    .glass-panel { padding: 30px 20px; }
+    .bundle-hero-card { padding: 20px 15px; }
+    .price-main { font-size: 1.8rem; }
+    .showcase-controls { flex-direction: column; }
+    section { scroll-margin-top: 90px; }
+    .modal-arrow-left { left: 10px; }
+    .modal-arrow-right { right: 10px; }
+    .modal-arrow { font-size: 1.4rem; padding: 10px 14px; }
+    .tech-ticker-track { gap: 20px; }
 }
