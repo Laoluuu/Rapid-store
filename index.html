@@ -64,14 +64,14 @@
                     <p class="bundle-desc">Includes <strong>Summer 26' Edition</strong> + <strong>Personal Assistant & Task Cleaner DLC</strong></p>
                     
                     <div class="price-container">
-                        <span class="price-strike">R45.00</span>
-                        <span class="price-main">ZAR 40.00</span>
-                        <span class="price-save">SAVE R5.00</span>
+                        <span class="price-strike">$24.98</span>
+                        <span class="price-main">$19.99</span>
+                        <span class="price-save">SAVE $4.99</span>
                     </div>
-                    <div class="sub-price currency-converted" data-zar="40"></div>
+                    <div class="sub-price currency-converted" data-usd="19.99"></div>
 
                     <a href="https://www.paypal.com/ncp/payment/ERTJUR2VSJBKL" class="purchase-btn flagship-btn" data-paypal="PAYPAL_LINK_BUNDLE">
-                        <span class="btn-text">GET THE 26' PA BUNDLE — R40</span>
+                        <span class="btn-text">GET THE 26' PA BUNDLE — $19.99</span>
                         <div class="btn-slide"></div>
                     </a>
                 </div>
@@ -168,11 +168,11 @@
                     <h4>SUMMER 26' PA BUNDLE</h4>
                     <p class="card-desc">Full Summer 26' Edition + Personal Assistant & Task Cleaner Engine DLC combined.</p>
                     <div class="card-price">
-                        <span class="amount">R40.00</span>
-                        <span class="currency-converted sub-price" data-zar="40"></span>
+                        <span class="amount">$19.99</span>
+                        <span class="currency-converted sub-price" data-usd="19.99"></span>
                     </div>
                     <a href="https://www.paypal.com/ncp/payment/ERTJUR2VSJBKL" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_BUNDLE">
-                        <span class="btn-text">PURCHASE BUNDLE (R40)</span>
+                        <span class="btn-text">PURCHASE BUNDLE ($19.99)</span>
                         <div class="btn-slide"></div>
                     </a>
                 </div>
@@ -182,11 +182,11 @@
                     <h4>SUMMER 26' EDITION</h4>
                     <p class="card-desc">Standalone Desktop Assistant. Offline-capable A.I. task processing.</p>
                     <div class="card-price">
-                        <span class="amount">R30.00</span>
-                        <span class="currency-converted sub-price" data-zar="30"></span>
+                        <span class="amount">$14.99</span>
+                        <span class="currency-converted sub-price" data-usd="14.99"></span>
                     </div>
                     <a href="https://www.paypal.com/ncp/payment/YPF4LMHE3W456" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_26">
-                        <span class="btn-text">PURCHASE 26' EDITION (R30)</span>
+                        <span class="btn-text">PURCHASE 26' EDITION ($14.99)</span>
                         <div class="btn-slide"></div>
                     </a>
                 </div>
@@ -196,11 +196,11 @@
                     <h4>PA & TASK CLEANER DLC</h4>
                     <p class="card-desc">Personal Assistant & Task Cleaner Module add-on for existing core deployments.</p>
                     <div class="card-price">
-                        <span class="amount">R15.00</span>
-                        <span class="currency-converted sub-price" data-zar="15"></span>
+                        <span class="amount">$9.99</span>
+                        <span class="currency-converted sub-price" data-usd="9.99"></span>
                     </div>
                     <a href="https://www.paypal.com/ncp/payment/DFXA6447EU4WA" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_PA">
-                        <span class="btn-text">PURCHASE PA DLC (R15)</span>
+                        <span class="btn-text">PURCHASE PA DLC ($9.99)</span>
                         <div class="btn-slide"></div>
                     </a>
                 </div>
@@ -211,11 +211,11 @@
                     <h4>SUMMER 25' EDITION</h4>
                     <p class="card-desc">Previous summer release core interface. Baseline offline functionality.</p>
                     <div class="card-price">
-                        <span class="amount">R20.00</span>
-                        <span class="currency-converted sub-price" data-zar="20"></span>
+                        <span class="amount">$7.50</span>
+                        <span class="currency-converted sub-price" data-usd="7.50"></span>
                     </div>
                     <a href="https://www.paypal.com/ncp/payment/7NC9DHUY63B98" class="purchase-btn card-btn secondary-btn" data-paypal="https://www.paypal.com/ncp/payment/7NC9DHUY63B98">
-                        <span class="btn-text">PURCHASE 25' EDITION (R20)</span>
+                        <span class="btn-text">PURCHASE 25' EDITION ($7.50)</span>
                         <div class="btn-slide"></div>
                     </a>
                 </div>
@@ -451,20 +451,39 @@
 
         // --- REAL-TIME GLOBAL CURRENCY CONVERTER ---
         const rates = {
-            'US': { code: 'USD', rate: 0.055, symbol: '$' },
-            'GB': { code: 'GBP', rate: 0.043, symbol: '£' },
-            'EU': { code: 'EUR', rate: 0.051, symbol: '€' },
-            'JP': { code: 'JPY', rate: 8.2, symbol: '¥' },
+            'ZA': { code: 'ZAR', rate: 16.5, symbol: 'ZAR ' },
+            'GB': { code: 'GBP', rate: 0.78, symbol: '£' },
+            'EU': { code: 'EUR', rate: 0.92, symbol: '€' },
+            'JP': { code: 'JPY', rate: 150.0, symbol: '¥' },
+            'US': { code: 'USD', rate: 1.0, symbol: '$' }
         };
+
         const userLang = navigator.language || navigator.userLanguage; 
-        const region = userLang.split('-')[1] || 'US';
+        const parts = userLang.split('-');
+        let region = parts[1] ? parts[1].toUpperCase() : null;
+
+        // Detect timezone via browser Intl API
+        try {
+            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            if (timeZone && (timeZone.includes('Johannesburg') || timeZone.includes('Africa/'))) {
+                region = 'ZA';
+            }
+        } catch (e) {
+            // If timezone detection fails, fall back to region or US default
+        }
+
+        // Default to US (Standard USD pricing) if timezone/region is undetected or unmapped
         const targetCurrency = rates[region] || rates['US'];
 
         document.querySelectorAll('.currency-converted').forEach(el => {
-            const zar = parseFloat(el.getAttribute('data-zar'));
-            if (zar) {
-                const converted = (zar * targetCurrency.rate).toFixed(2);
-                el.textContent = `(Approx. ${targetCurrency.symbol}${converted} ${targetCurrency.code})`;
+            const usd = parseFloat(el.getAttribute('data-usd'));
+            if (usd) {
+                if (targetCurrency.code === 'USD') {
+                    el.textContent = `(Standard USD pricing)`;
+                } else {
+                    const converted = (usd * targetCurrency.rate).toFixed(2);
+                    el.textContent = `(approx. ${targetCurrency.symbol}${converted})`;
+                }
             }
         });
     </script>
