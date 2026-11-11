@@ -70,10 +70,15 @@
                     </div>
                     <div class="sub-price currency-converted" data-usd="19.99"></div>
 
-                    <a href="https://www.paypal.com/ncp/payment/ERTJUR2VSJBKL" class="purchase-btn flagship-btn" data-paypal="PAYPAL_LINK_BUNDLE">
+                    <a href="https://payhip.com/b/NLfI4" class="purchase-btn flagship-btn" data-paypal="PAYPAL_LINK_BUNDLE">
                         <span class="btn-text">GET THE 26' PA BUNDLE — $19.99</span>
                         <div class="btn-slide"></div>
                     </a>
+
+                    <!-- FLEXIBLE CROSS-DEVICE PURCHASE NOTICE -->
+                    <div class="flexible-purchase-banner">
+                        <p><strong>Browsing on Mobile, Mac, or Safari?</strong> Secure your copy now on any device. Your official confirmation and secure package access are sent directly to your email—simply forward the receipt or transfer the file to your Windows PC whenever you are ready to install.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -135,7 +140,8 @@
             <h3 class="section-header">INTERFACE SHOWCASE</h3>
             <div class="showcase-container">
                 <div class="showcase-controls">
-                    <button class="showcase-btn active" data-key="cleaner" onclick="selectPreview('cleaner', event)">Expired Task Cleaner (DLC)</button>
+                    <button class="showcase-btn active" data-key="instant_inference" onclick="selectPreview('instant_inference', event)">Sub-50ms Ultra-Fast Engine Demo</button>
+                    <button class="showcase-btn" data-key="cleaner" onclick="selectPreview('cleaner', event)">Expired Task Cleaner (DLC)</button>
                     <button class="showcase-btn" data-key="checkin" onclick="selectPreview('checkin', event)">Daily PA Check-In (DLC)</button>
                     <button class="showcase-btn" data-key="emergency" onclick="selectPreview('emergency', event)">Emergency Protocol (DLC)</button>
                     <button class="showcase-btn" data-key="dlc_verify" onclick="selectPreview('dlc_verify', event)">DLC Verification (DLC)</button>
@@ -146,12 +152,18 @@
                     <button class="showcase-btn" data-key="light" onclick="selectPreview('light', event)">Light Mode Engine</button>
                     <button class="showcase-btn" data-key="dark" onclick="selectPreview('dark', event)">Dark Mode Engine</button>
                 </div>
-                <div class="showcase-viewport" style="position: relative; cursor: pointer;" onclick="openFullscreenModal()">
-                    <div style="position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.7); color: #cfa24e; padding: 6px 12px; font-size: 0.75rem; border: 1px solid #cfa24e; font-family: 'Orbitron', sans-serif; pointer-events: none; z-index: 5;">
+                <div class="showcase-viewport" style="position: relative; cursor: pointer;" onclick="handleViewportClick()">
+                    <div id="expand-hint" style="position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.7); color: #cfa24e; padding: 6px 12px; font-size: 0.75rem; border: 1px solid #cfa24e; font-family: 'Orbitron', sans-serif; pointer-events: none; z-index: 5;">
                         CLICK TO EXPAND &#x26F6;
                     </div>
-                    <img id="preview-img" src="Screenshot (667).png" alt="Expired Task Cleaner DLC View">
-                    <div class="showcase-caption" id="preview-caption">Expired Task Cleaner DLC: Automatically scans reminders and schedules for old tasks, enabling 1-click archival or permanent purging.</div>
+                    
+                    <img id="preview-img" src="" alt="Showcase Preview" style="display: none; width: 100%; height: auto;">
+                    <video id="preview-video" autoplay loop muted playsinline style="display: none; width: 100%; height: auto; border-radius: 2px;">
+                        <source id="preview-video-src" src="" type="video/mp4">
+                        Your browser does not support HTML5 video playback.
+                    </video>
+
+                    <div class="showcase-caption" id="preview-caption">Sub-50ms Inference Engine: Real-time demonstration showcasing near-instantaneous offline AI dialogue response times.</div>
                 </div>
             </div>
         </section>
@@ -171,7 +183,7 @@
                         <span class="amount">$19.99</span>
                         <span class="currency-converted sub-price" data-usd="19.99"></span>
                     </div>
-                    <a href="https://www.paypal.com/ncp/payment/ERTJUR2VSJBKL" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_BUNDLE">
+                    <a href="https://payhip.com/b/NLfI4" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_BUNDLE">
                         <span class="btn-text">PURCHASE BUNDLE ($19.99)</span>
                         <div class="btn-slide"></div>
                     </a>
@@ -185,7 +197,7 @@
                         <span class="amount">$14.99</span>
                         <span class="currency-converted sub-price" data-usd="14.99"></span>
                     </div>
-                    <a href="https://www.paypal.com/ncp/payment/YPF4LMHE3W456" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_26">
+                    <a href="https://payhip.com/b/zrYaV" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_26">
                         <span class="btn-text">PURCHASE 26' EDITION ($14.99)</span>
                         <div class="btn-slide"></div>
                     </a>
@@ -199,25 +211,30 @@
                         <span class="amount">$9.99</span>
                         <span class="currency-converted sub-price" data-usd="9.99"></span>
                     </div>
-                    <a href="https://www.paypal.com/ncp/payment/DFXA6447EU4WA" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_PA">
+                    <a href="https://payhip.com/b/lgx7V" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_PA">
                         <span class="btn-text">PURCHASE PA DLC ($9.99)</span>
                         <div class="btn-slide"></div>
                     </a>
                 </div>
 
-                <!-- SUMMER 25 LEGACY -->
-                <div class="dlc-card legacy-card">
-                    <div class="tier-tag legacy-tag">LEGACY ENTRY</div>
+                <!-- SUMMER 25 LEGACY COMMUNITY MODEL -->
+                <div class="dlc-card legacy-card community-card">
+                    <div class="tier-tag legacy-tag community-tag">COMMUNITY EDITION</div>
                     <h4>SUMMER 25' EDITION</h4>
-                    <p class="card-desc">Previous summer release core interface. Baseline offline functionality.</p>
+                    <p class="card-desc">Previous summer release core interface. Baseline offline functionality. (Cannot load DLCs).</p>
                     <div class="card-price">
-                        <span class="amount">$7.50</span>
-                        <span class="currency-converted sub-price" data-usd="7.50"></span>
+                        <span class="amount free-amount">FREE</span>
+                        <span class="sub-price">(Community Model &bull; $0.00)</span>
                     </div>
-                    <a href="https://www.paypal.com/ncp/payment/7NC9DHUY63B98" class="purchase-btn card-btn secondary-btn" data-paypal="https://www.paypal.com/ncp/payment/7NC9DHUY63B98">
-                        <span class="btn-text">PURCHASE 25' EDITION ($7.50)</span>
+                    <a href="https://payhip.com/b/YOwqh" class="purchase-btn card-btn secondary-btn free-btn" data-paypal="PAYPAL_LINK_25">
+                        <span class="btn-text">DOWNLOAD FREE EDITION</span>
                         <div class="btn-slide"></div>
                     </a>
+
+                    <!-- FREE EDITION TRANSPARENCY & FULFILLMENT BANNER -->
+                    <div class="flexible-purchase-banner" style="margin-top: 15px; font-size: 0.75rem;">
+                        <p><strong>100% Free & No Payment Required:</strong> Claim your copy on any device. Your download guide will be sent directly to your email inbox containing your direct access link to download the software package completely free of charge.</p>
+                    </div>
                 </div>
 
             </div>
@@ -229,7 +246,7 @@
         <p class="tiny-text">PROPRIETARY SOFTWARE. UNAUTHORIZED DISTRIBUTION IS PROHIBITED.</p>
     </footer>
 
-    <!-- FULLSCREEN IMAGE LIGHTBOX MODAL WITH ARROWS -->
+    <!-- FULLSCREEN IMAGE & VIDEO LIGHTBOX MODAL WITH ARROWS -->
     <div id="image-modal" class="image-modal" style="display: none;">
         <span class="modal-close" onclick="closeFullscreenModal()">&times;</span>
         
@@ -237,11 +254,15 @@
         <button class="modal-arrow modal-arrow-left" onclick="navigateModal(-1)">&#10094;</button>
         <button class="modal-arrow modal-arrow-right" onclick="navigateModal(1)">&#10095;</button>
         
-        <img class="modal-content" id="modal-img">
+        <img class="modal-content" id="modal-img" style="display: none;">
+        <video class="modal-content" id="modal-video" controls autoplay loop style="display: none;">
+            <source id="modal-video-src" src="" type="video/mp4">
+        </video>
+        
         <div id="modal-caption" class="modal-caption-text"></div>
     </div>
 
-    <!-- SUCCESS OVERLAY -->
+    <!-- GENERAL SUCCESS OVERLAY -->
     <div id="success-overlay" class="success-overlay" style="display: none;">
         <div class="success-panel">
             <div class="success-header">
@@ -250,77 +271,78 @@
             
             <div class="success-message">
                 <p>Welcome to R.A.P.I.D.(i). On behalf of Mr. Ojobaro, thank you for your order.</p>
-                <p><strong>Direct Download:</strong> Your package transfer is starting automatically.</p>
-                <p><strong>Contingency Link:</strong> If your browser blocks the download, click the secure access link below.</p>
+                <p>Your package transfer access has been sent directly to your email address.</p>
             </div>
-            
-            <a id="contingency-link" class="purchase-btn contingency-btn" href="#">
-                <span class="btn-text">INITIALIZE MANUAL FILE TRANSFER</span>
-                <div class="btn-slide"></div>
-            </a>
         </div>
     </div>
 
     <script>
-        // --- PAYPAL LINK CONFIGURATION ---
+        // --- PAYHIP STORE LINKS CONFIGURATION ---
         const PAYPAL_LINKS = {
-            PAYPAL_LINK_BUNDLE: "https://www.paypal.com/ncp/payment/ERTJUR2VSJBKL", 
-            PAYPAL_LINK_26: "https://www.paypal.com/ncp/payment/YPF4LMHE3W456",     
-            PAYPAL_LINK_PA: "https://www.paypal.com/ncp/payment/DFXA6447EU4WA",     
-            "https://www.paypal.com/ncp/payment/7NC9DHUY63B98": "https://www.paypal.com/ncp/payment/7NC9DHUY63B98" 
-        };
-
-        // --- DIRECT GITHUB ACCESS CONTINGENCY MAP ---
-        const DOWNLOAD_LINKS = {
-            bundle: "https://github.com/Laoluuu/Rapid-store/releases/download/26PABundle1.0.0/RAPID.26.PA.Bundle.zip",
-            rapid26: "https://github.com/Laoluuu/Rapid-store/releases/download/R_26_v1.0.0/RAPID.zip",
-            padlc: "https://github.com/Laoluuu/Rapid-store/releases/download/PADLCv1.0.0/Personal.Assistant.DLC.zip",
-            rapid25: "https://github.com/Laoluuu/Rapid-store/releases/download/v1.0.0/R.A.P.I.D.i.zip"
+            PAYPAL_LINK_BUNDLE: "https://payhip.com/b/NLfI4", 
+            PAYPAL_LINK_26: "https://payhip.com/b/zrYaV",     
+            PAYPAL_LINK_PA: "https://payhip.com/b/lgx7V",
+            PAYPAL_LINK_25: "https://payhip.com/b/YOwqh"
         };
 
         // --- CORE & PA DLC SHOWCASE MATRIX ---
-        const showcaseKeys = ['cleaner', 'checkin', 'emergency', 'dlc_verify', 'eisenhower', 'scheduling', 'reminders', 'logic', 'light', 'dark'];
+        const showcaseKeys = ['instant_inference', 'cleaner', 'checkin', 'emergency', 'dlc_verify', 'eisenhower', 'scheduling', 'reminders', 'logic', 'light', 'dark'];
         let currentShowcaseIndex = 0;
 
         const showcaseData = {
+            instant_inference: {
+                type: "video",
+                src: "video_1.mp4",
+                caption: "Sub-50ms Inference Engine: Practical real-time demonstration showcasing near-instantaneous offline AI dialogue response speed."
+            },
             cleaner: {
-                img: "Screenshot (667).png",
+                type: "image",
+                src: "Screenshot (667).png",
                 caption: "Expired Task Cleaner DLC: Automatically scans reminders and schedules for old tasks, enabling 1-click archival or permanent purging."
             },
             checkin: {
-                img: "Screenshot (666).png",
+                type: "image",
+                src: "Screenshot (666).png",
                 caption: "Daily PA Check-In DLC: Autonomous check-in system verifying active schedules and prompting for missing task reminders."
             },
             emergency: {
-                img: "Screenshot (669).png",
+                type: "image",
+                src: "Screenshot (669).png",
                 caption: "Unforeseen Event Protocol DLC: Emergency protocol enabling real-time adjustments when disruptions happen."
             },
             dlc_verify: {
-                img: "Screenshot 2026-11-06 180954.png",
+                type: "image",
+                src: "Screenshot 2026-11-06 180954.png",
                 caption: "DLC Verification & Management: Internal engine status displaying loaded and verified expansion modules."
             },
             eisenhower: {
-                img: "Screenshot (690).png",
+                type: "image",
+                src: "Screenshot (690).png",
                 caption: "Eisenhower Decision Assistant: Generates a 4-quadrant decision matrix (Do, Plan, Delegate, Eliminate) when handling stress queries."
             },
             scheduling: {
-                img: "Screenshot (687).png",
+                type: "image",
+                src: "Screenshot (687).png",
                 caption: "Autonomous Scheduling: Checks calendar databases and assigns tasks to open days."
             },
             reminders: {
-                img: "Screenshot (688).png",
+                type: "image",
+                src: "Screenshot (688).png",
                 caption: "Reminder Management: Handles, lists, and removes items from the SQLite reminders database."
             },
             logic: {
-                img: "Screenshot (692).png",
+                type: "image",
+                src: "Screenshot (692).png",
                 caption: "Calculations Engine: Parses math strings directly for rapid execution."
             },
             light: {
-                img: "Screenshot (671).png",
+                type: "image",
+                src: "Screenshot (671).png",
                 caption: "Light Mode View: Default high-contrast light theme engine interface."
             },
             dark: {
-                img: "Screenshot (678).png",
+                type: "image",
+                src: "Screenshot (678).png",
                 caption: "Dark Mode View: Low-light theme option for dark environments."
             }
         };
@@ -328,11 +350,25 @@
         function selectPreview(key, evt) {
             currentShowcaseIndex = showcaseKeys.indexOf(key);
             const img = document.getElementById('preview-img');
+            const video = document.getElementById('preview-video');
+            const videoSrc = document.getElementById('preview-video-src');
             const caption = document.getElementById('preview-caption');
+            const item = showcaseData[key];
             
-            if (img && showcaseData[key]) {
-                img.src = showcaseData[key].img;
-                caption.textContent = showcaseData[key].caption;
+            if (item) {
+                if (item.type === 'video') {
+                    img.style.display = 'none';
+                    videoSrc.src = item.src;
+                    video.load();
+                    video.style.display = 'block';
+                    video.play().catch(() => {});
+                } else {
+                    video.style.display = 'none';
+                    video.pause();
+                    img.src = item.src;
+                    img.style.display = 'block';
+                }
+                caption.textContent = item.caption;
             }
             
             const buttons = document.querySelectorAll('.showcase-btn');
@@ -345,6 +381,10 @@
             });
         }
 
+        function handleViewportClick() {
+            openFullscreenModal();
+        }
+
         // --- FULLSCREEN MODAL & CAROUSEL NAVIGATION ---
         function openFullscreenModal() {
             const modal = document.getElementById('image-modal');
@@ -353,17 +393,34 @@
         }
 
         function closeFullscreenModal() {
-            document.getElementById('image-modal').style.display = "none";
+            const modal = document.getElementById('image-modal');
+            const modalVideo = document.getElementById('modal-video');
+            modalVideo.pause();
+            modal.style.display = "none";
         }
 
         function updateModalContent() {
             const key = showcaseKeys[currentShowcaseIndex];
+            const item = showcaseData[key];
             const modalImg = document.getElementById('modal-img');
+            const modalVideo = document.getElementById('modal-video');
+            const modalVideoSrc = document.getElementById('modal-video-src');
             const modalCaption = document.getElementById('modal-caption');
             
-            if (showcaseData[key]) {
-                modalImg.src = showcaseData[key].img;
-                modalCaption.textContent = showcaseData[key].caption;
+            if (item) {
+                if (item.type === 'video') {
+                    modalImg.style.display = 'none';
+                    modalVideoSrc.src = item.src;
+                    modalVideo.load();
+                    modalVideo.style.display = 'block';
+                    modalVideo.play().catch(() => {});
+                } else {
+                    modalVideo.style.display = 'none';
+                    modalVideo.pause();
+                    modalImg.src = item.src;
+                    modalImg.style.display = 'block';
+                }
+                modalCaption.textContent = item.caption;
                 selectPreview(key);
             }
         }
@@ -372,6 +429,11 @@
             currentShowcaseIndex = (currentShowcaseIndex + direction + showcaseKeys.length) % showcaseKeys.length;
             updateModalContent();
         }
+
+        // Initialize preview on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            selectPreview(showcaseKeys[0]);
+        });
 
         // --- KEYBOARD CONTROLS FOR MODAL (ARROWS + A/D FOR GAMERS) ---
         document.addEventListener('keydown', (e) => {
@@ -387,15 +449,15 @@
             }
         });
 
-        // --- BUTTON HANDLING & PAYPAL REDIRECT ---
-        const purchaseButtons = document.querySelectorAll('.purchase-btn:not(.contingency-btn)');
+        // --- BUTTON HANDLING & CHECKOUT REDIRECT ---
+        const purchaseButtons = document.querySelectorAll('.purchase-btn');
         
         purchaseButtons.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault(); 
                 
                 const targetPaypalKey = btn.getAttribute('data-paypal');
-                const destination = PAYPAL_LINKS[targetPaypalKey] || targetPaypalKey;
+                const destination = PAYPAL_LINKS[targetPaypalKey] || targetPaypalKey || btn.getAttribute('href');
                 const textSpan = btn.querySelector('.btn-text');
 
                 btn.style.pointerEvents = 'none';
@@ -420,33 +482,21 @@
             });
         });
 
-        // --- POST-PURCHASE REDIRECT & AUTO DOWNLOAD ---
-        function handleSuccessScreen(downloadUrl) {
+        // --- POST-PURCHASE REDIRECT OVERLAY DISPLAY ---
+        function showSuccessOverlay() {
             document.getElementById('main-header').style.display = 'none';
             document.getElementById('store-content').style.display = 'none';
             document.querySelector('footer').style.display = 'none';
 
             const overlay = document.getElementById('success-overlay');
-            const contingencyBtn = document.getElementById('contingency-link');
-            
-            if (contingencyBtn) {
-                contingencyBtn.href = downloadUrl;
-            }
-
             if (overlay) {
                 overlay.style.display = 'flex';
             }
-
-            window.location.href = downloadUrl;
         }
 
         const urlParams = new URLSearchParams(window.location.search);
-        const status = urlParams.get('status');
-        const item = urlParams.get('item') || 'bundle';
-        
-        if (status === 'success') {
-            const targetDownload = DOWNLOAD_LINKS[item] || DOWNLOAD_LINKS.bundle;
-            handleSuccessScreen(targetDownload);
+        if (urlParams.get('status') === 'success') {
+            showSuccessOverlay();
         }
 
         // --- REAL-TIME GLOBAL CURRENCY CONVERTER ---

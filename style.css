@@ -253,6 +253,24 @@ main {
     margin-bottom: 20px;
 }
 
+/* --- FLEXIBLE DEVICE PURCHASE NOTICE --- */
+.flexible-purchase-banner {
+    display: block;
+    background: rgba(207, 162, 78, 0.08);
+    border: 1px dashed rgba(207, 162, 78, 0.4);
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin-top: 20px;
+    text-align: left;
+    font-size: 0.8rem;
+    color: #ccc;
+    line-height: 1.55;
+}
+
+.flexible-purchase-banner strong {
+    color: #cfa24e;
+}
+
 /* --- TECH STACK TICKER / TRUST BANNER --- */
 .tech-ticker-container {
     width: 100%;
@@ -518,6 +536,23 @@ main {
     color: #ccc;
 }
 
+.community-tag {
+    background: #10B981;
+    color: #000;
+}
+
+.community-card {
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.free-amount {
+    color: #10B981 !important;
+}
+
+.free-btn {
+    border-color: #10B981;
+}
+
 .dlc-card h4 {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.1rem;
@@ -674,4 +709,5 @@ footer {
     .modal-arrow-right { right: 10px; }
     .modal-arrow { font-size: 1.4rem; padding: 10px 14px; }
     .tech-ticker-track { gap: 20px; }
+    .flexible-purchase-banner { text-align: center; }
 }
