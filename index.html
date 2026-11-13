@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ojobaro</title>
+    <title>Ojobaro Inc.</title>
     
     <!-- Browser Tab Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
@@ -32,7 +32,8 @@
         <nav>
             <a href="#core">CORE</a>
             <a href="#showcase">CAPABILITIES</a>
-            <a href="#pricing">TIERS</a>
+            <a href="#pricing">EDITIONS</a>
+            <a href="#about">ABOUT</a>
         </nav>
     </header>
 
@@ -140,7 +141,7 @@
             <h3 class="section-header">INTERFACE SHOWCASE</h3>
             <div class="showcase-container">
                 <div class="showcase-controls">
-                    <button class="showcase-btn active" data-key="instant_inference" onclick="selectPreview('instant_inference', event)">Sub-50ms Ultra-Fast Engine Demo</button>
+                    <button class="showcase-btn active" data-key="instant_inference" onclick="selectPreview('instant_inference', event)">Summer 26' Edition Sub-50ms Ultra-Fast Engine Demo</button>
                     <button class="showcase-btn" data-key="cleaner" onclick="selectPreview('cleaner', event)">Expired Task Cleaner (DLC)</button>
                     <button class="showcase-btn" data-key="checkin" onclick="selectPreview('checkin', event)">Daily PA Check-In (DLC)</button>
                     <button class="showcase-btn" data-key="emergency" onclick="selectPreview('emergency', event)">Emergency Protocol (DLC)</button>
@@ -156,6 +157,10 @@
                     <div id="expand-hint" style="position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.7); color: #cfa24e; padding: 6px 12px; font-size: 0.75rem; border: 1px solid #cfa24e; font-family: 'Orbitron', sans-serif; pointer-events: none; z-index: 5;">
                         CLICK TO EXPAND &#x26F6;
                     </div>
+
+                    <!-- VIEWPORT NAVIGATION ARROWS -->
+                    <button class="viewport-arrow viewport-arrow-left" onclick="navigateShowcase(-1, event)" style="position: absolute; top: 50%; left: 15px; transform: translateY(-50%); background: rgba(0,0,0,0.7); color: #cfa24e; border: 1px solid #cfa24e; padding: 10px 14px; font-size: 1.2rem; cursor: pointer; z-index: 5;">&#10094;</button>
+                    <button class="viewport-arrow viewport-arrow-right" onclick="navigateShowcase(1, event)" style="position: absolute; top: 50%; right: 15px; transform: translateY(-50%); background: rgba(0,0,0,0.7); color: #cfa24e; border: 1px solid #cfa24e; padding: 10px 14px; font-size: 1.2rem; cursor: pointer; z-index: 5;">&#10095;</button>
                     
                     <img id="preview-img" src="" alt="Showcase Preview" style="display: none; width: 100%; height: auto;">
                     <video id="preview-video" autoplay loop muted playsinline style="display: none; width: 100%; height: auto; border-radius: 2px;">
@@ -192,7 +197,7 @@
                 <!-- SUMMER 26 STANDALONE -->
                 <div class="dlc-card">
                     <h4>SUMMER 26' EDITION</h4>
-                    <p class="card-desc">Standalone Desktop Assistant. Offline-capable A.I. task processing.</p>
+                    <p class="card-desc">Standalone Desktop Assistant. Offline-capable A.I. task processing with instant response speed and all-round performance increase. Loads any and all official DLCs.</p>
                     <div class="card-price">
                         <span class="amount">$14.99</span>
                         <span class="currency-converted sub-price" data-usd="14.99"></span>
@@ -237,6 +242,47 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- ABOUT & DIRECT SUPPORT SECTION -->
+        <section id="about" class="about-support-section" style="max-width: 1100px; margin: 60px auto 40px; padding: 0 20px;">
+            <div class="glass-panel" style="max-width: 100%; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; padding: 35px; border: 1px solid rgba(207, 162, 78, 0.35);">
+                <div>
+                    <h3 class="section-header" style="text-align: left; margin-bottom: 14px;">ABOUT OJOBARO INC.</h3>
+                    <p style="line-height: 1.7; opacity: 0.9; font-size: 0.92rem; color: #ccc;">
+                        Ojobaro Inc. builds intelligent, easy-to-use Windows software that is affordably priced and designed to make everyday tasks faster and simpler—whether you are experienced with computers or brand new to them. R.A.P.I.D.(i) was created to bring instant A.I. assistance, scheduling, and task organization straight to your desktop—with zero tracking, zero monthly fees, and complete offline reliability.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="section-header" style="text-align: left; margin-bottom: 14px;">DIRECT SUPPORT &amp; INQUIRIES</h3>
+                    <p style="line-height: 1.6; opacity: 0.85; font-size: 0.88rem; color: #bbb; margin-bottom: 14px;">
+                        Have a pre-purchase question or need assistance with installation or DLC activation? Send a direct message to our engineering desk below.
+                    </p>
+
+                    <form id="support-form" action="https://formsubmit.co/laoluojobaro@gmail.com" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 10px;">
+                        <input type="hidden" name="_subject" value="R.A.P.I.D.(i) Storefront Inquiry">
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <input type="text" name="subject_title" placeholder="Subject / Topic (e.g., Installation, Bundle Inquiry)" required style="width: 100%; padding: 10px 12px; background: rgba(10, 11, 14, 0.9); border: 1px solid rgba(207, 162, 78, 0.35); border-radius: 4px; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; outline: none;">
+
+                        <input type="email" name="email" placeholder="Your return email address (so we can reply)" required style="width: 100%; padding: 10px 12px; background: rgba(10, 11, 14, 0.9); border: 1px solid rgba(207, 162, 78, 0.35); border-radius: 4px; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; outline: none;">
+
+                        <textarea id="support-message" name="message" rows="3" placeholder="Enter your message or attach a screenshot/video below... (Press Enter to send, Shift+Enter for new line)" required style="width: 100%; padding: 10px 12px; background: rgba(10, 11, 14, 0.9); border: 1px solid rgba(207, 162, 78, 0.35); border-radius: 4px; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; resize: vertical; outline: none;"></textarea>
+
+                        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 2px;">
+                            <label style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(255, 255, 255, 0.04); border: 1px dashed rgba(207, 162, 78, 0.45); border-radius: 4px; color: #cfa24e; font-size: 0.78rem; font-weight: 600; cursor: pointer;">
+                                <span>&#128206; Attach Image / Video</span>
+                                <input id="support-attachment" type="file" name="attachment" accept="image/*,video/*" style="display: none;">
+                            </label>
+                            <span id="attachment-name" style="font-size: 0.75rem; color: #888; flex: 1; min-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">No file attached</span>
+
+                            <button type="submit" style="padding: 10px 18px; background: #cfa24e; color: #000; border: none; border-radius: 3px; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; cursor: pointer;">
+                                SEND MESSAGE
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
@@ -381,6 +427,12 @@
             });
         }
 
+        function navigateShowcase(direction, evt) {
+            if (evt) evt.stopPropagation();
+            currentShowcaseIndex = (currentShowcaseIndex + direction + showcaseKeys.length) % showcaseKeys.length;
+            selectPreview(showcaseKeys[currentShowcaseIndex]);
+        }
+
         function handleViewportClick() {
             openFullscreenModal();
         }
@@ -481,6 +533,35 @@
                 }, 1400);
             });
         });
+
+        // --- DIRECT SUPPORT FORM (FILE PREVIEW & ENTER TO SEND) ---
+        const supportForm = document.getElementById('support-form');
+        const supportMessage = document.getElementById('support-message');
+        const supportAttachment = document.getElementById('support-attachment');
+        const attachmentName = document.getElementById('attachment-name');
+
+        if (supportAttachment && attachmentName) {
+            supportAttachment.addEventListener('change', () => {
+                if (supportAttachment.files && supportAttachment.files.length > 0) {
+                    attachmentName.textContent = supportAttachment.files[0].name;
+                    attachmentName.style.color = '#cfa24e';
+                } else {
+                    attachmentName.textContent = 'No file attached';
+                    attachmentName.style.color = '#888';
+                }
+            });
+        }
+
+        if (supportMessage && supportForm) {
+            supportMessage.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    if (supportForm.reportValidity()) {
+                        supportForm.submit();
+                    }
+                }
+            });
+        }
 
         // --- POST-PURCHASE REDIRECT OVERLAY DISPLAY ---
         function showSuccessOverlay() {
