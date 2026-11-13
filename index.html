@@ -257,10 +257,10 @@
                 <div>
                     <h3 class="section-header" style="text-align: left; margin-bottom: 14px;">DIRECT SUPPORT &amp; INQUIRIES</h3>
                     <p style="line-height: 1.6; opacity: 0.85; font-size: 0.88rem; color: #bbb; margin-bottom: 14px;">
-                        Have a pre-purchase question or need assistance with installation or DLC activation? Send a direct message to our engineering desk below.
+                        Have a pre-purchase question or need assistance with installation or DLC activation? Send a direct message to our support desk below.
                     </p>
 
-                    <form id="support-form" action="https://formsubmit.co/be4bc7e3a0201e7d3f5ebccbe2b37c6c" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 10px;">
+                    <form id="support-form" action="https://formsubmit.co/ajax/be4bc7e3a0201e7d3f5ebccbe2b37c6c" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 10px;">
                         <input type="hidden" name="_subject" value="R.A.P.I.D.(i) Storefront Inquiry">
                         <input type="hidden" name="_captcha" value="false">
 
@@ -277,11 +277,27 @@
                             </label>
                             <span id="attachment-name" style="font-size: 0.75rem; color: #888; flex: 1; min-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">No file attached</span>
 
-                            <button type="submit" style="padding: 10px 18px; background: #cfa24e; color: #000; border: none; border-radius: 3px; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; cursor: pointer;">
+                            <button id="support-submit-btn" type="submit" style="padding: 10px 18px; background: #cfa24e; color: #000; border: none; border-radius: 3px; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; cursor: pointer;">
                                 SEND MESSAGE
                             </button>
                         </div>
+                        <p style="font-size: 0.78rem; opacity: 0.75; margin-top: 4px; color: #aaa;">
+                            Typical response time: Within 24 hours.
+                        </p>
                     </form>
+
+                    <!-- IN-PAGE CONFIRMATION STATE -->
+                    <div id="support-success" style="display: none; background: rgba(10, 11, 14, 0.92); border: 1px solid #cfa24e; border-radius: 4px; padding: 22px; margin-top: 6px;">
+                        <div style="font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; color: #cfa24e; letter-spacing: 1.5px; margin-bottom: 8px;">
+                            &#10003; INQUIRY DISPATCHED
+                        </div>
+                        <p style="font-size: 0.88rem; color: #ddd; line-height: 1.6; margin-bottom: 12px;">
+                            Thank you for contacting Ojobaro Inc. Your message has been received by our support team, and we will respond to your email within <strong>24 hours</strong>.
+                        </p>
+                        <button type="button" onclick="resetSupportForm()" style="padding: 8px 14px; background: transparent; color: #cfa24e; border: 1px solid rgba(207, 162, 78, 0.5); border-radius: 3px; font-family: 'Orbitron', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; cursor: pointer;">
+                            SEND ANOTHER MESSAGE
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -534,11 +550,13 @@
             });
         });
 
-        // --- DIRECT SUPPORT FORM (FILE PREVIEW & ENTER TO SEND) ---
+        // --- DIRECT SUPPORT FORM (IN-PAGE AJAX SUBMISSION + ENTER TO SEND) ---
         const supportForm = document.getElementById('support-form');
         const supportMessage = document.getElementById('support-message');
         const supportAttachment = document.getElementById('support-attachment');
         const attachmentName = document.getElementById('attachment-name');
+        const supportSubmitBtn = document.getElementById('support-submit-btn');
+        const supportSuccess = document.getElementById('support-success');
 
         if (supportAttachment && attachmentName) {
             supportAttachment.addEventListener('change', () => {
@@ -552,13 +570,59 @@
             });
         }
 
+        async function submitSupportAjax() {
+            if (!supportForm.reportValidity()) return;
+
+            const originalText = supportSubmitBtn.textContent;
+            supportSubmitBtn.disabled = true;
+            supportSubmitBtn.textContent = 'SENDING...';
+
+            try {
+                const formData = new FormData(supportForm);
+                const response = await fetch(supportForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    supportForm.style.display = 'none';
+                    supportSuccess.style.display = 'block';
+                    supportForm.reset();
+                    if (attachmentName) {
+                        attachmentName.textContent = 'No file attached';
+                        attachmentName.style.color = '#888';
+                    }
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (err) {
+                alert('Unable to send message right now. If you have a strict browser firewall or antivirus web shield enabled, please try again or disable link scanning for this page.');
+            } finally {
+                supportSubmitBtn.disabled = false;
+                supportSubmitBtn.textContent = originalText;
+            }
+        }
+
+        function resetSupportForm() {
+            supportSuccess.style.display = 'none';
+            supportForm.style.display = 'flex';
+        }
+
+        if (supportForm) {
+            supportForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                submitSupportAjax();
+            });
+        }
+
         if (supportMessage && supportForm) {
             supportMessage.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
-                    if (supportForm.reportValidity()) {
-                        supportForm.submit();
-                    }
+                    submitSupportAjax();
                 }
             });
         }
