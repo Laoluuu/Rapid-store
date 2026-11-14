@@ -268,14 +268,17 @@
 
                         <textarea id="support-email" name="email" rows="1" inputmode="email" autocapitalize="off" spellcheck="false" placeholder="Your return email address (so we can reply)" required class="support-input support-single-line"></textarea>
 
-                        <textarea id="support-message" name="message" rows="3" placeholder="Enter your message or attach a screenshot/video below... (Press Enter to send, Shift+Enter for new line)" required class="support-input" style="resize: vertical;"></textarea>
+                        <textarea id="support-message" name="message" rows="3" placeholder="Enter your message or optionally attach a screenshot/file below..." required class="support-input" style="resize: vertical;"></textarea>
 
                         <div class="support-actions-row">
-                            <label class="support-attach-label">
-                                <span>&#128206; Attach Image / Video</span>
-                                <input id="support-attachment" type="file" name="attachment" accept="image/*,video/*" style="display: none;">
+                            <label class="support-attach-label" title="Optional: Attach an image, short video, PDF receipt, or log file (Max 5 MB)">
+                                <span>&#128206; Attach Screenshot / File</span>
+                                <input id="support-attachment" type="file" name="attachment" accept="image/*,video/*,.pdf,.txt,.log" style="display: none;">
                             </label>
-                            <span id="attachment-name" class="support-file-name">No file attached</span>
+                            <div class="support-file-status">
+                                <span id="attachment-name" class="support-file-name">Optional &bull; Max 5 MB</span>
+                                <button type="button" id="remove-attachment-btn" class="support-remove-file" title="Remove attachment" aria-label="Remove attachment" style="display: none;">&times;</button>
+                            </div>
 
                             <button id="support-submit-btn" type="submit" class="support-submit-btn">
                                 SEND MESSAGE
@@ -550,14 +553,15 @@
             });
         });
 
-        // --- DIRECT SUPPORT FORM (IN-PAGE AJAX SUBMISSION + ENTER TO SEND) ---
+        // --- DIRECT SUPPORT FORM (SEND BUTTON ONLY; ENTER CREATES PARAGRAPHS IN MESSAGE) ---
         const supportForm = document.getElementById('support-form');
-        const supportMessage = document.getElementById('support-message');
         const supportEmail = document.getElementById('support-email');
         const supportAttachment = document.getElementById('support-attachment');
         const attachmentName = document.getElementById('attachment-name');
+        const removeAttachmentBtn = document.getElementById('remove-attachment-btn');
         const supportSubmitBtn = document.getElementById('support-submit-btn');
         const supportSuccess = document.getElementById('support-success');
+        const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024; // 5 MB
 
         // Keep single-line wrapped textareas behaving like clean single-line inputs
         document.querySelectorAll('.support-single-line').forEach(field => {
@@ -580,15 +584,47 @@
             });
         }
 
+        function clearAttachment(warningMessage) {
+            if (supportAttachment) {
+                supportAttachment.value = '';
+            }
+            if (removeAttachmentBtn) {
+                removeAttachmentBtn.style.display = 'none';
+            }
+            if (attachmentName) {
+                if (warningMessage) {
+                    attachmentName.textContent = warningMessage;
+                    attachmentName.style.color = '#f87171';
+                } else {
+                    attachmentName.textContent = 'Optional • Max 5 MB';
+                    attachmentName.style.color = '#888';
+                }
+            }
+        }
+
         if (supportAttachment && attachmentName) {
             supportAttachment.addEventListener('change', () => {
                 if (supportAttachment.files && supportAttachment.files.length > 0) {
-                    attachmentName.textContent = supportAttachment.files[0].name;
+                    const file = supportAttachment.files[0];
+                    if (file.size > MAX_ATTACHMENT_BYTES) {
+                        const sizeMB = (file.size / (1024 * 1024)).toFixed(1);
+                        clearAttachment(`Too large (${sizeMB} MB) — must be less than 5 MB`);
+                        return;
+                    }
+                    attachmentName.textContent = file.name;
                     attachmentName.style.color = '#cfa24e';
+                    if (removeAttachmentBtn) {
+                        removeAttachmentBtn.style.display = 'inline-flex';
+                    }
                 } else {
-                    attachmentName.textContent = 'No file attached';
-                    attachmentName.style.color = '#888';
+                    clearAttachment();
                 }
+            });
+        }
+
+        if (removeAttachmentBtn) {
+            removeAttachmentBtn.addEventListener('click', () => {
+                clearAttachment();
             });
         }
 
@@ -613,10 +649,7 @@
                     supportForm.style.display = 'none';
                     supportSuccess.style.display = 'block';
                     supportForm.reset();
-                    if (attachmentName) {
-                        attachmentName.textContent = 'No file attached';
-                        attachmentName.style.color = '#888';
-                    }
+                    clearAttachment();
                 } else {
                     throw new Error('Submission failed');
                 }
@@ -637,15 +670,6 @@
             supportForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 submitSupportAjax();
-            });
-        }
-
-        if (supportMessage && supportForm) {
-            supportMessage.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    submitSupportAjax();
-                }
             });
         }
 
