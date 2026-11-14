@@ -264,9 +264,9 @@
                         <input type="hidden" name="_subject" value="R.A.P.I.D.(i) Storefront Inquiry">
                         <input type="hidden" name="_captcha" value="false">
 
-                        <input type="text" name="subject_title" placeholder="Subject / Topic (e.g., Installation, Bundle Inquiry)" required class="support-input">
+                        <textarea name="subject_title" rows="1" placeholder="Subject / Topic (e.g., Installation, Bundle Inquiry)" required class="support-input support-single-line"></textarea>
 
-                        <input type="email" name="email" placeholder="Your return email address (so we can reply)" required class="support-input">
+                        <textarea id="support-email" name="email" rows="1" inputmode="email" autocapitalize="off" spellcheck="false" placeholder="Your return email address (so we can reply)" required class="support-input support-single-line"></textarea>
 
                         <textarea id="support-message" name="message" rows="3" placeholder="Enter your message or attach a screenshot/video below... (Press Enter to send, Shift+Enter for new line)" required class="support-input" style="resize: vertical;"></textarea>
 
@@ -553,10 +553,32 @@
         // --- DIRECT SUPPORT FORM (IN-PAGE AJAX SUBMISSION + ENTER TO SEND) ---
         const supportForm = document.getElementById('support-form');
         const supportMessage = document.getElementById('support-message');
+        const supportEmail = document.getElementById('support-email');
         const supportAttachment = document.getElementById('support-attachment');
         const attachmentName = document.getElementById('attachment-name');
         const supportSubmitBtn = document.getElementById('support-submit-btn');
         const supportSuccess = document.getElementById('support-success');
+
+        // Keep single-line wrapped textareas behaving like clean single-line inputs
+        document.querySelectorAll('.support-single-line').forEach(field => {
+            field.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                }
+            });
+            field.addEventListener('input', () => {
+                field.value = field.value.replace(/[\r\n]+/g, ' ');
+            });
+        });
+
+        // Validate email format on the wrapped email field
+        if (supportEmail) {
+            supportEmail.addEventListener('input', () => {
+                const val = supportEmail.value.trim();
+                const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+                supportEmail.setCustomValidity(val && !isValid ? 'Please enter a valid email address.' : '');
+            });
+        }
 
         if (supportAttachment && attachmentName) {
             supportAttachment.addEventListener('change', () => {
@@ -681,28 +703,6 @@
                 }
             }
         });
-
-        // --- AUTO-SCROLLING PLACEHOLDER TICKER FOR COMPACT SCREENS ---
-        function initPlaceholderTicker(selector, fullText) {
-            const el = document.querySelector(selector);
-            if (!el) return;
-            const padded = fullText + '   •   ';
-            let pos = 0;
-
-            setInterval(() => {
-                if (document.hidden || document.activeElement === el || el.value.length > 0) return;
-                if (window.innerWidth <= 768) {
-                    el.placeholder = padded.slice(pos) + padded.slice(0, pos);
-                    pos = (pos + 1) % padded.length;
-                } else {
-                    el.placeholder = fullText;
-                    pos = 0;
-                }
-            }, 180);
-        }
-
-        initPlaceholderTicker('input[name="subject_title"]', 'Subject / Topic (e.g., Installation, Bundle Inquiry)');
-        initPlaceholderTicker('input[name="email"]', 'Your return email address (so we can reply)');
     </script>
 </body>
 </html>

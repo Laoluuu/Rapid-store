@@ -614,7 +614,14 @@ main {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.85rem;
+    line-height: 1.4;
     outline: none;
+}
+
+.support-single-line {
+    resize: none;
+    height: 40px;
+    overflow: hidden;
 }
 
 .support-actions-row {
@@ -833,6 +840,10 @@ footer {
     }
     .support-input {
         font-size: 16px;
+    }
+    .support-single-line {
+        height: auto;
+        min-height: 62px;
     }
     .support-actions-row {
         flex-direction: column;
