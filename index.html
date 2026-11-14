@@ -681,6 +681,28 @@
                 }
             }
         });
+
+        // --- AUTO-SCROLLING PLACEHOLDER TICKER FOR COMPACT SCREENS ---
+        function initPlaceholderTicker(selector, fullText) {
+            const el = document.querySelector(selector);
+            if (!el) return;
+            const padded = fullText + '   •   ';
+            let pos = 0;
+
+            setInterval(() => {
+                if (document.hidden || document.activeElement === el || el.value.length > 0) return;
+                if (window.innerWidth <= 768) {
+                    el.placeholder = padded.slice(pos) + padded.slice(0, pos);
+                    pos = (pos + 1) % padded.length;
+                } else {
+                    el.placeholder = fullText;
+                    pos = 0;
+                }
+            }, 180);
+        }
+
+        initPlaceholderTicker('input[name="subject_title"]', 'Subject / Topic (e.g., Installation, Bundle Inquiry)');
+        initPlaceholderTicker('input[name="email"]', 'Your return email address (so we can reply)');
     </script>
 </body>
 </html>
