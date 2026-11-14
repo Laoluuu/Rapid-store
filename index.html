@@ -27,7 +27,7 @@
 
     <header id="main-header">
         <div class="logo">
-            <img src="header-logo.png" alt="Ojobaro Inc. Logo" class="header-logo-img" style="height: 65px;">
+            <img src="header-logo.png" alt="Ojobaro Inc. Logo" class="header-logo-img">
         </div>
         <nav>
             <a href="#core">CORE</a>
@@ -246,15 +246,15 @@
         </section>
 
         <!-- ABOUT & DIRECT SUPPORT SECTION -->
-        <section id="about" class="about-support-section" style="max-width: 1100px; margin: 60px auto 40px; padding: 0 20px;">
-            <div class="glass-panel" style="max-width: 100%; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; padding: 35px; border: 1px solid rgba(207, 162, 78, 0.35);">
-                <div>
+        <section id="about" class="about-support-section">
+            <div class="glass-panel about-support-grid">
+                <div class="about-col">
                     <h3 class="section-header" style="text-align: left; margin-bottom: 14px;">ABOUT OJOBARO INC.</h3>
                     <p style="line-height: 1.7; opacity: 0.9; font-size: 0.92rem; color: #ccc;">
                         Ojobaro Inc. builds intelligent, easy-to-use Windows software that is genuinely affordably priced and designed to make everyday tasks faster and simpler—whether you are experienced with computers or brand new to them. R.A.P.I.D.(i) was created to bring instant A.I. assistance, scheduling, and task organization straight to your desktop—with zero tracking, zero monthly fees, and complete offline reliability.
                     </p>
                 </div>
-                <div>
+                <div class="support-col">
                     <h3 class="section-header" style="text-align: left; margin-bottom: 14px;">DIRECT SUPPORT &amp; INQUIRIES</h3>
                     <p style="line-height: 1.6; opacity: 0.85; font-size: 0.88rem; color: #bbb; margin-bottom: 14px;">
                         Have a pre-purchase question or need assistance with installation or DLC activation? Send a direct message to our support desk below.
@@ -264,20 +264,20 @@
                         <input type="hidden" name="_subject" value="R.A.P.I.D.(i) Storefront Inquiry">
                         <input type="hidden" name="_captcha" value="false">
 
-                        <input type="text" name="subject_title" placeholder="Subject / Topic (e.g., Installation, Bundle Inquiry)" required style="width: 100%; padding: 10px 12px; background: rgba(10, 11, 14, 0.9); border: 1px solid rgba(207, 162, 78, 0.35); border-radius: 4px; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; outline: none;">
+                        <input type="text" name="subject_title" placeholder="Subject / Topic (e.g., Installation, Bundle Inquiry)" required class="support-input">
 
-                        <input type="email" name="email" placeholder="Your return email address (so we can reply)" required style="width: 100%; padding: 10px 12px; background: rgba(10, 11, 14, 0.9); border: 1px solid rgba(207, 162, 78, 0.35); border-radius: 4px; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; outline: none;">
+                        <input type="email" name="email" placeholder="Your return email address (so we can reply)" required class="support-input">
 
-                        <textarea id="support-message" name="message" rows="3" placeholder="Enter your message or attach a screenshot/video below... (Press Enter to send, Shift+Enter for new line)" required style="width: 100%; padding: 10px 12px; background: rgba(10, 11, 14, 0.9); border: 1px solid rgba(207, 162, 78, 0.35); border-radius: 4px; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; resize: vertical; outline: none;"></textarea>
+                        <textarea id="support-message" name="message" rows="3" placeholder="Enter your message or attach a screenshot/video below... (Press Enter to send, Shift+Enter for new line)" required class="support-input" style="resize: vertical;"></textarea>
 
-                        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 2px;">
-                            <label style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(255, 255, 255, 0.04); border: 1px dashed rgba(207, 162, 78, 0.45); border-radius: 4px; color: #cfa24e; font-size: 0.78rem; font-weight: 600; cursor: pointer;">
+                        <div class="support-actions-row">
+                            <label class="support-attach-label">
                                 <span>&#128206; Attach Image / Video</span>
                                 <input id="support-attachment" type="file" name="attachment" accept="image/*,video/*" style="display: none;">
                             </label>
-                            <span id="attachment-name" style="font-size: 0.75rem; color: #888; flex: 1; min-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">No file attached</span>
+                            <span id="attachment-name" class="support-file-name">No file attached</span>
 
-                            <button id="support-submit-btn" type="submit" style="padding: 10px 18px; background: #cfa24e; color: #000; border: none; border-radius: 3px; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; cursor: pointer;">
+                            <button id="support-submit-btn" type="submit" class="support-submit-btn">
                                 SEND MESSAGE
                             </button>
                         </div>
@@ -289,7 +289,7 @@
                     <!-- IN-PAGE CONFIRMATION STATE -->
                     <div id="support-success" style="display: none; background: rgba(10, 11, 14, 0.92); border: 1px solid #cfa24e; border-radius: 4px; padding: 22px; margin-top: 6px;">
                         <div style="font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; color: #cfa24e; letter-spacing: 1.5px; margin-bottom: 8px;">
-                            &#10003; INQUIRY SENT
+                            &#10003; INQUIRY DISPATCHED
                         </div>
                         <p style="font-size: 0.88rem; color: #ddd; line-height: 1.6; margin-bottom: 12px;">
                             Thank you for contacting Ojobaro Inc. Your message has been received by our support team, and we will respond to your email within <strong>24 hours</strong>.
