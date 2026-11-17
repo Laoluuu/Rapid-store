@@ -9,79 +9,416 @@
     <link rel="icon" type="image/png" href="logo.png">
 
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Microsoft Clarity Analytics -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "zandwz2r1j");
+    </script>
 </head>
 <body>
 
     <div class="geo-bg"></div>
     <div class="geo-bg-2"></div>
 
-    <header id="main-header" style="padding: 10px 40px; align-items: center; min-height: 220px;">
+    <header id="main-header">
         <div class="logo">
-            <img src="header-logo.png" alt="Ojobaro Inc. Logo" style="height: 200px; width: auto; vertical-align: middle; display: block;">
+            <img src="header-logo.png" alt="Ojobaro Inc. Logo" class="header-logo-img">
         </div>
         <nav>
             <a href="#core">CORE</a>
-            <a href="#modules">MODULES</a>
+            <a href="#showcase">CAPABILITIES</a>
+            <a href="#pricing">EDITIONS</a>
+            <a href="#about">ABOUT</a>
         </nav>
     </header>
 
     <main id="store-content">
+        <!-- HERO SECTION -->
         <section id="core" class="hero-section">
-            <div class="glass-panel">
+            <div class="glass-panel main-flagship">
+                <div class="badge-flagship">FLAGSHIP EDITION</div>
                 <div class="glitch-wrapper">
                     <h1 class="hero-title" data-text="R.A.P.I.D.(i)">R.A.P.I.D.(i)</h1>
                 </div>
-                <h2 class="hero-subtitle">SUMMER 25' EDITION</h2>
+                <h2 class="hero-subtitle">SUMMER 26' EDITION</h2>
                 
-                <div class="windows-notice" style="display: flex; align-items: center; justify-content: center; gap: 14px; margin: 18px 0; font-weight: 400; font-size: 1.1rem;">
-                    <span>Windows OS Exclusive</span>
-                    <img src="windows-logo.png" alt="Windows Logo" style="height: 48px; width: auto; vertical-align: middle;">
+                <div class="windows-notice">
+                    <span>Windows OS Exclusive &bull; Local &amp; Offline &bull; Zero Data Tracking</span>
+                    <img src="windows-logo.png" alt="Windows Logo" class="win-logo">
                 </div>
                 
                 <div class="product-details">
-                    <p>A personal AI/LLM and assistant software interface designed to run locally, offline and without data tracking.</p>
-                    <p>Features: handles tasks like scheduling, reminders, stress management and calculations alongside AI/LLM functions.</p>
+                    <p class="hero-hook">A.I. that doesn't need the internet.</p>
+                    <p class="hero-copy">Runs locally, works offline, protects your privacy and expands through downloadable modules. No subscriptions. No unnecessary data collection. Yours to control.</p>
+                    <p class="hero-features">Features: handles tasks like scheduling, reminders, stress management and calculations alongside A.I./LLM functions.</p>
                 </div>
 
-                <div class="price-tag">
-                    <span id="price-display">ZAR 30.00</span>
-                    <span id="currency-converted" class="sub-price"></span>
-                </div>
+                <!-- VALUE ANCHOR PROMO CONTAINER -->
+                <div class="bundle-hero-card">
+                    <div class="bundle-badge">RECOMMENDED COMBINATION</div>
+                    <h3>SUMMER 26' BUNDLE</h3>
+                    <p class="bundle-desc">Includes <strong>Summer 26' Edition</strong> + <strong>Personal Assistant &amp; Task Cleaner DLC</strong></p>
+                    
+                    <div class="price-container">
+                        <span class="price-strike">$24.98</span>
+                        <span class="price-main">$19.99</span>
+                        <span class="price-save">SAVE $4.99</span>
+                    </div>
+                    <div class="sub-price currency-converted" data-usd="19.99"></div>
 
-                <a href="https://www.paypal.com/ncp/payment/7NC9DHUY63B98" class="purchase-btn" id="download-btn">
-                    <span class="btn-text">INITIALIZE PURCHASE</span>
-                    <div class="btn-slide"></div>
-                </a>
+                    <a href="https://payhip.com/b/NLfI4" class="purchase-btn flagship-btn" data-paypal="PAYPAL_LINK_BUNDLE">
+                        <span class="btn-text">GET THE 26' PA BUNDLE — $19.99</span>
+                        <div class="btn-slide"></div>
+                    </a>
 
-                <div class="policy-note">
-                    *Secure Digital Delivery.
+                    <!-- FLEXIBLE CROSS-DEVICE PURCHASE NOTICE -->
+                    <div class="flexible-purchase-banner">
+                        <p><strong>Browsing on Mobile, Mac, or Safari?</strong> Secure your copy now on any device. Your official confirmation and secure package access are sent directly to your email—simply forward the receipt or transfer the file to your Windows PC whenever you are ready to install.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="modules" class="dlc-section">
-            <h3 class="section-header">EXPANSION MODULES</h3>
+        <!-- TECH STACK TICKER / TRUST BANNER -->
+        <div class="tech-ticker-container">
+            <div class="tech-ticker-label">POWERED BY NATIVE TECH STACK</div>
+            <div class="tech-ticker-wrapper">
+                <div class="tech-ticker-track">
+                    <!-- FIRST SET OF LOGOS -->
+                    <div class="tech-badge">
+                        <img src="Black and Grey Clean Modern Minimalist Creative Technology Logo (2).png" alt="Python 3.13">
+                        <span>Python 3.13</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="Black and Grey Clean Modern Minimalist Creative Technology Logo (1).png" alt="Electron Framework">
+                        <span>Electron</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="SQLite370.svg" alt="SQLite 3 Database">
+                        <span>SQLite 3</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="windows-logo.png" alt="Windows OS Architecture">
+                        <span>Windows OS</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="logo.png" alt="RAPID Task Engine">
+                        <span>RAPID Task Engine</span>
+                    </div>
+
+                    <!-- DUPLICATE SET FOR INFINITE CONTINUOUS SCROLL -->
+                    <div class="tech-badge">
+                        <img src="Black and Grey Clean Modern Minimalist Creative Technology Logo (2).png" alt="Python 3.13">
+                        <span>Python 3.13</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="Black and Grey Clean Modern Minimalist Creative Technology Logo (1).png" alt="Electron Framework">
+                        <span>Electron</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="SQLite370.svg" alt="SQLite 3 Database">
+                        <span>SQLite 3</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="windows-logo.png" alt="Windows OS Architecture">
+                        <span>Windows OS</span>
+                    </div>
+                    <div class="tech-badge">
+                        <img src="logo.png" alt="RAPID Task Engine">
+                        <span>RAPID Task Engine</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISUAL SHOWCASE SECTION -->
+        <section id="showcase" class="showcase-section">
+            <h3 class="section-header">INTERFACE SHOWCASE</h3>
+            <div class="showcase-container">
+                <div class="showcase-controls">
+                    <button class="showcase-btn active" data-key="instant_inference" onclick="selectPreview('instant_inference', event)">Summer 26' Edition Sub-50ms Ultra-Fast Engine Demo</button>
+                    <button class="showcase-btn" data-key="cleaner" onclick="selectPreview('cleaner', event)">Expired Task Cleaner (DLC)</button>
+                    <button class="showcase-btn" data-key="checkin" onclick="selectPreview('checkin', event)">Daily PA Check-In (DLC)</button>
+                    <button class="showcase-btn" data-key="emergency" onclick="selectPreview('emergency', event)">Emergency Protocol (DLC)</button>
+                    <button class="showcase-btn" data-key="dlc_verify" onclick="selectPreview('dlc_verify', event)">DLC Verification (DLC)</button>
+                    <button class="showcase-btn" data-key="eisenhower" onclick="selectPreview('eisenhower', event)">Eisenhower Matrix</button>
+                    <button class="showcase-btn" data-key="scheduling" onclick="selectPreview('scheduling', event)">Schedule Management</button>
+                    <button class="showcase-btn" data-key="reminders" onclick="selectPreview('reminders', event)">Reminder Processing</button>
+                    <button class="showcase-btn" data-key="logic" onclick="selectPreview('logic', event)">Calculations &amp; Math</button>
+                    <button class="showcase-btn" data-key="light" onclick="selectPreview('light', event)">Light Mode Engine</button>
+                    <button class="showcase-btn" data-key="dark" onclick="selectPreview('dark', event)">Dark Mode Engine</button>
+                </div>
+                <div class="showcase-viewport" style="position: relative; cursor: pointer;" onclick="handleViewportClick()">
+                    <div id="expand-hint" style="position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.7); color: #cfa24e; padding: 6px 12px; font-size: 0.75rem; border: 1px solid #cfa24e; font-family: 'Orbitron', sans-serif; pointer-events: none; z-index: 5;">
+                        CLICK TO EXPAND &#x26F6;
+                    </div>
+
+                    <!-- VIEWPORT NAVIGATION ARROWS -->
+                    <button class="viewport-arrow viewport-arrow-left" onclick="navigateShowcase(-1, event)" style="position: absolute; top: 50%; left: 15px; transform: translateY(-50%); background: rgba(0,0,0,0.7); color: #cfa24e; border: 1px solid #cfa24e; padding: 10px 14px; font-size: 1.2rem; cursor: pointer; z-index: 5;">&#10094;</button>
+                    <button class="viewport-arrow viewport-arrow-right" onclick="navigateShowcase(1, event)" style="position: absolute; top: 50%; right: 15px; transform: translateY(-50%); background: rgba(0,0,0,0.7); color: #cfa24e; border: 1px solid #cfa24e; padding: 10px 14px; font-size: 1.2rem; cursor: pointer; z-index: 5;">&#10095;</button>
+                    
+                    <img id="preview-img" src="" alt="Showcase Preview" style="display: none; width: 100%; height: auto;">
+                    <video id="preview-video" autoplay loop muted playsinline style="display: none; width: 100%; height: auto; border-radius: 2px;">
+                        <source id="preview-video-src" src="" type="video/mp4">
+                        Your browser does not support HTML5 video playback.
+                    </video>
+
+                    <div class="showcase-caption" id="preview-caption">Sub-50ms Inference Engine: Real-time demonstration showcasing near-instantaneous offline AI dialogue response times.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING MATRIX GRID -->
+        <section id="pricing" class="dlc-section">
+            <h3 class="section-header">EDITIONS &amp; EXPANSIONS</h3>
             
             <div class="dlc-grid">
-                <div class="dlc-card locked">
-                    <div class="lock-overlay">
-                        <div class="lock-icon">🔒</div>
-                        <div class="loading-bar"><div class="bar-fill"></div></div>
-                        <span>COMPILING ASSETS...</span>
+                
+                <!-- 1. SUMMER 26' PA BUNDLE -->
+                <div class="dlc-card highlighted-card">
+                    <div class="card-top">
+                        <div class="tier-tag">BEST VALUE &bull; BUNDLE</div>
+                        <h4>SUMMER 26' PA BUNDLE</h4>
+                        <div class="ps-platform-badges">
+                            <span class="ps-badge">WINDOWS</span>
+                            <span class="ps-badge">CORE APPLICATION + DLC</span>
+                        </div>
+                        <p class="card-desc">The complete flagship R.A.P.I.D.(i) desktop deployment bundled with the Personal Assistant &amp; Task Cleaner expansion module at a combined discount.</p>
+                        
+                        <div class="ps-includes-box">
+                            <div class="ps-includes-title">THIS BUNDLE INCLUDES:</div>
+                            <ul class="ps-feature-list">
+                                <li><strong>R.A.P.I.D.(i) Summer 26' Core Engine:</strong> Sub-50ms offline A.I. inference, Eisenhower Decision Matrix, autonomous scheduling, SQLite reminders, math engine, and Light/Dark themes.</li>
+                                <li><strong>PA &amp; Task Cleaner DLC Module:</strong> Pre-packaged add-on unlocking Expired Task Cleaner, Daily PA Check-In, and Unforeseen Event Emergency Protocol.</li>
+                                <li><strong>Full Expansion Support:</strong> Ready for all future official 26' Series DLC modules.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h4>SCHEDULER KERNEL</h4>
-                    <p>Advanced heuristics for time management.</p>
+
+                    <div class="card-bottom">
+                        <div class="card-price">
+                            <span class="amount">$19.99 <span class="ps-strike-inline">$24.98</span></span>
+                            <span class="currency-converted sub-price" data-usd="19.99"></span>
+                        </div>
+                        <a href="https://payhip.com/b/NLfI4" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_BUNDLE">
+                            <span class="btn-text">PURCHASE BUNDLE ($19.99)</span>
+                            <div class="btn-slide"></div>
+                        </a>
+                        <p class="ps-card-legal">One-time purchase. Offline Windows PC license. No internet required after download.</p>
+                    </div>
                 </div>
 
-                <div class="dlc-card locked">
-                    <div class="lock-overlay">
-                        <div class="lock-icon">🔒</div>
-                        <div class="loading-bar delay-bar"><div class="bar-fill"></div></div>
-                        <span>ENCRYPTING NEURAL NET...</span>
+                <!-- 2. SUMMER 26' EDITION STANDALONE -->
+                <div class="dlc-card">
+                    <div class="card-top">
+                        <div class="tier-tag standard-tag">STANDARD EDITION</div>
+                        <h4>SUMMER 26' EDITION</h4>
+                        <div class="ps-platform-badges">
+                            <span class="ps-badge">WINDOWS</span>
+                            <span class="ps-badge">CORE APPLICATION</span>
+                        </div>
+                        <p class="card-desc">Standalone flagship Windows desktop assistant engineered for sub-50ms local A.I. task execution, zero telemetry, and modular DLC expandability.</p>
+
+                        <div class="ps-includes-box">
+                            <div class="ps-includes-title">WHAT'S INCLUDED:</div>
+                            <ul class="ps-feature-list">
+                                <li><strong>Sub-50ms Local Inference Engine:</strong> Instantaneous offline dialogue and command execution without cloud latency.</li>
+                                <li><strong>Core Productivity Suite:</strong> Autonomous calendar scheduling, local SQLite reminder database, rapid string math parser, and 4-quadrant Eisenhower stress matrix.</li>
+                                <li><strong>Modular DLC Architecture:</strong> Supports installing and verifying any official R.A.P.I.D.(i) expansion pack (sold separately).</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h4>STRESS ANALYZER</h4>
-                    <p>Biometric logic integration.</p>
+
+                    <div class="card-bottom">
+                        <div class="card-price">
+                            <span class="amount">$14.99</span>
+                            <span class="currency-converted sub-price" data-usd="14.99"></span>
+                        </div>
+                        <a href="https://payhip.com/b/zrYaV" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_26">
+                            <span class="btn-text">PURCHASE 26' EDITION ($14.99)</span>
+                            <div class="btn-slide"></div>
+                        </a>
+                        <p class="ps-card-legal">One-time purchase. Base core software only; PA &amp; Task Cleaner DLC sold separately.</p>
+                    </div>
+                </div>
+
+                <!-- 3. PA & TASK CLEANER DLC STANDALONE -->
+                <div class="dlc-card">
+                    <div class="card-top">
+                        <div class="tier-tag dlc-tag">ADD-ON MODULE</div>
+                        <h4>PA &amp; TASK CLEANER DLC</h4>
+                        <div class="ps-platform-badges">
+                            <span class="ps-badge">WINDOWS</span>
+                            <span class="ps-badge ps-badge-warn">REQUIRES 26' CORE</span>
+                        </div>
+                        <p class="card-desc">Official Personal Assistant &amp; Task Cleaner expansion pack designed to upgrade existing R.A.P.I.D.(i) Summer 26' Edition installations with proactive workflow automation.</p>
+
+                        <div class="ps-includes-box">
+                            <div class="ps-includes-title">MODULE FEATURES &amp; SPECS:</div>
+                            <ul class="ps-feature-list">
+                                <li><strong>Expired Task Cleaner:</strong> Automatically scans local SQLite schedules and reminders for overdue items with 1-click archival or permanent purging.</li>
+                                <li><strong>Daily PA Check-In:</strong> Autonomous daily briefing protocol that audits active schedules and prompts for missing task reminders.</li>
+                                <li><strong>Unforeseen Event Protocol:</strong> Rapid emergency rescheduling assistant for real-time day disruptions.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-bottom">
+                        <div class="card-price">
+                            <span class="amount">$9.99</span>
+                            <span class="currency-converted sub-price" data-usd="9.99"></span>
+                        </div>
+                        <a href="https://payhip.com/b/lgx7V" class="purchase-btn card-btn" data-paypal="PAYPAL_LINK_PA">
+                            <span class="btn-text">PURCHASE PA DLC ($9.99)</span>
+                            <div class="btn-slide"></div>
+                        </a>
+                        <p class="ps-card-legal"><strong>Compatibility Notice:</strong> Requires R.A.P.I.D.(i) Summer 26' Edition (sold separately). Not compatible with Summer 25' Community Edition.</p>
+                    </div>
+                </div>
+
+                <!-- 4. SUMMER 25' LEGACY COMMUNITY MODEL -->
+                <div class="dlc-card legacy-card community-card">
+                    <div class="card-top">
+                        <div class="tier-tag legacy-tag community-tag">COMMUNITY EDITION</div>
+                        <h4>SUMMER 25' EDITION</h4>
+                        <div class="ps-platform-badges">
+                            <span class="ps-badge">WINDOWS</span>
+                            <span class="ps-badge">LEGACY FREEWARE</span>
+                        </div>
+                        <p class="card-desc">Previous-generation Summer 2025 release provided free to the community to experience baseline offline local A.I. task handling with zero tracking.</p>
+
+                        <div class="ps-includes-box">
+                            <div class="ps-includes-title">EDITION SPECIFICATIONS:</div>
+                            <ul class="ps-feature-list">
+                                <li><strong>Baseline Offline Engine:</strong> Legacy 2025 command parser, basic local reminders, and offline desktop interface.</li>
+                                <li><strong>Zero Telemetry &amp; No Expiry:</strong> Completely free perpetual download with no account registration or internet connection required.</li>
+                                <li><strong>Architecture Limitation:</strong> Legacy core does <em>not</em> include the Summer 26' sub-50ms engine and cannot load official DLC expansion modules.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-bottom">
+                        <div class="card-price">
+                            <span class="amount free-amount">FREE</span>
+                            <span class="sub-price">(Community Model &bull; $0.00)</span>
+                        </div>
+                        <a href="https://payhip.com/b/YOwqh" class="purchase-btn card-btn secondary-btn free-btn" data-paypal="PAYPAL_LINK_25">
+                            <span class="btn-text">DOWNLOAD FREE EDITION</span>
+                            <div class="btn-slide"></div>
+                        </a>
+
+                        <!-- FREE EDITION TRANSPARENCY & FULFILLMENT BANNER -->
+                        <div class="flexible-purchase-banner" style="margin-top: 15px; font-size: 0.75rem;">
+                            <p><strong>100% Free &amp; No Payment Required:</strong> Claim your copy on any device. Your direct download link is sent straight to your email inbox completely free of charge.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PLAYSTATION-STYLE STORE PRODUCT & LEGAL SPECIFICATIONS PANEL -->
+            <div class="ps-legal-panel">
+                <div class="ps-legal-header">
+                    <h4>SOFTWARE &amp; LEGAL INFORMATION</h4>
+                    <span>OFFICIAL STOREFRONT SPECIFICATIONS</span>
+                </div>
+
+                <div class="ps-meta-grid">
+                    <div class="ps-meta-item">
+                        <span class="ps-meta-label">Platform:</span>
+                        <span class="ps-meta-value">Windows 10 / Windows 11 (64-bit)</span>
+                    </div>
+                    <div class="ps-meta-item">
+                        <span class="ps-meta-label">Publisher:</span>
+                        <span class="ps-meta-value">Ojobaro Inc.</span>
+                    </div>
+                    <div class="ps-meta-item">
+                        <span class="ps-meta-label">Release Series:</span>
+                        <span class="ps-meta-value">Summer 2026 Flagship / Summer 2025 Legacy</span>
+                    </div>
+                    <div class="ps-meta-item">
+                        <span class="ps-meta-label">Network &amp; Privacy:</span>
+                        <span class="ps-meta-value">100% Offline Execution &bull; Zero Telemetry / 0 Cookies</span>
+                    </div>
+                    <div class="ps-meta-item">
+                        <span class="ps-meta-label">License Model:</span>
+                        <span class="ps-meta-value">Perpetual One-Time Purchase (No Subscriptions)</span>
+                    </div>
+                    <div class="ps-meta-item">
+                        <span class="ps-meta-label">Language:</span>
+                        <span class="ps-meta-value">English</span>
+                    </div>
+                </div>
+
+                <div class="ps-legal-copy">
+                    <p><strong>DLC &amp; Edition Compatibility Notice:</strong> To use the <em>Personal Assistant &amp; Task Cleaner DLC</em>, you must own <em>R.A.P.I.D.(i) Summer 26' Edition</em> (included in the <em>Summer 26' PA Bundle</em> or sold separately). Expansion modules are cryptographically verified inside the Summer 26' Edition DLC Manager and cannot be installed onto the free <em>Summer 25' Community Edition</em>.</p>
+                    <p><strong>Digital Fulfillment &amp; Cross-Device Checkout:</strong> Purchases are processed securely via Payhip. Upon completion, an official download package and license verification key are delivered immediately to your checkout email address for transfer to your Windows PC. Internet access is required solely for initial package download; all software features, SQLite databases, and local LLM functions operate completely offline on-device.</p>
+                    <p class="ps-copyright-line">&copy; 2026 O. Ojobaro / Ojobaro Inc. R.A.P.I.D.(i) and the Ojobaro emblem are proprietary trademarks of O. Ojobaro. All rights reserved. Reverse engineering, unauthorized redistribution, or commercial resale of software binaries or DLC packages is strictly prohibited.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT & DIRECT SUPPORT SECTION -->
+        <section id="about" class="about-support-section">
+            <div class="glass-panel about-support-grid">
+                <div class="about-col">
+                    <h3 class="section-header" style="text-align: left; margin-bottom: 14px;">ABOUT OJOBARO INC.</h3>
+                    <p style="line-height: 1.7; opacity: 0.9; font-size: 0.92rem; color: #ccc;">
+                        Ojobaro Inc. builds intelligent, easy-to-use Windows software that is affordably priced and designed to make everyday tasks faster and simpler—whether you are experienced with computers or brand new to them. R.A.P.I.D.(i) was created to bring instant A.I. assistance, scheduling, and task organization straight to your desktop—with zero tracking, zero monthly fees, and complete offline reliability.
+                    </p>
+                </div>
+                <div class="support-col">
+                    <h3 class="section-header" style="text-align: left; margin-bottom: 14px;">DIRECT SUPPORT &amp; INQUIRIES</h3>
+                    <p style="line-height: 1.6; opacity: 0.85; font-size: 0.88rem; color: #bbb; margin-bottom: 14px;">
+                        Have a pre-purchase question or need assistance with installation or DLC activation? Send a direct message to our support desk below.
+                    </p>
+
+                    <form id="support-form" action="https://formsubmit.co/ajax/be4bc7e3a0201e7d3f5ebccbe2b37c6c" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 10px;">
+                        <input type="hidden" name="_subject" value="R.A.P.I.D.(i) Storefront Inquiry">
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <textarea name="subject_title" rows="1" placeholder="Subject / Topic (e.g., Installation, Bundle Inquiry)" required class="support-input support-single-line"></textarea>
+
+                        <textarea id="support-email" name="email" rows="1" inputmode="email" autocapitalize="off" spellcheck="false" placeholder="Your return email address (so we can reply)" required class="support-input support-single-line"></textarea>
+
+                        <textarea id="support-message" name="message" rows="3" placeholder="Enter your message or optionally attach a screenshot/file below..." required class="support-input" style="resize: vertical;"></textarea>
+
+                        <div class="support-actions-row">
+                            <label class="support-attach-label" title="Optional: Attach an image, short video, PDF receipt, or log file (Max 5 MB)">
+                                <span>&#128206; Attach Screenshot / File</span>
+                                <input id="support-attachment" type="file" name="attachment" accept="image/*,video/*,.pdf,.txt,.log" style="display: none;">
+                            </label>
+                            <div class="support-file-status">
+                                <span id="attachment-name" class="support-file-name">Optional &bull; Max 5 MB</span>
+                                <button type="button" id="remove-attachment-btn" class="support-remove-file" title="Remove attachment" aria-label="Remove attachment" style="display: none;">&times;</button>
+                            </div>
+
+                            <button id="support-submit-btn" type="submit" class="support-submit-btn">
+                                SEND MESSAGE
+                            </button>
+                        </div>
+                        <p style="font-size: 0.78rem; opacity: 0.75; margin-top: 4px; color: #aaa;">
+                            Typical response time: Within 24 hours.
+                        </p>
+                    </form>
+
+                    <!-- IN-PAGE CONFIRMATION STATE -->
+                    <div id="support-success" style="display: none; background: rgba(10, 11, 14, 0.92); border: 1px solid #cfa24e; border-radius: 4px; padding: 22px; margin-top: 6px;">
+                        <div style="font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; color: #cfa24e; letter-spacing: 1.5px; margin-bottom: 8px;">
+                            &#10003; INQUIRY DISPATCHED
+                        </div>
+                        <p style="font-size: 0.88rem; color: #ddd; line-height: 1.6; margin-bottom: 12px;">
+                            Thank you for contacting Ojobaro Inc. Your message has been received by our support team, and we will respond to your email within <strong>24 hours</strong>.
+                        </p>
+                        <button type="button" onclick="resetSupportForm()" style="padding: 8px 14px; background: transparent; color: #cfa24e; border: 1px solid rgba(207, 162, 78, 0.5); border-radius: 3px; font-family: 'Orbitron', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; cursor: pointer;">
+                            SEND ANOTHER MESSAGE
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -92,107 +429,416 @@
         <p class="tiny-text">PROPRIETARY SOFTWARE. UNAUTHORIZED DISTRIBUTION IS PROHIBITED.</p>
     </footer>
 
+    <!-- FULLSCREEN IMAGE & VIDEO LIGHTBOX MODAL WITH ARROWS -->
+    <div id="image-modal" class="image-modal" style="display: none;">
+        <span class="modal-close" onclick="closeFullscreenModal()">&times;</span>
+        
+        <!-- NAVIGATION ARROWS -->
+        <button class="modal-arrow modal-arrow-left" onclick="navigateModal(-1)">&#10094;</button>
+        <button class="modal-arrow modal-arrow-right" onclick="navigateModal(1)">&#10095;</button>
+        
+        <img class="modal-content" id="modal-img" style="display: none;">
+        <video class="modal-content" id="modal-video" controls autoplay loop style="display: none;">
+            <source id="modal-video-src" src="" type="video/mp4">
+        </video>
+        
+        <div id="modal-caption" class="modal-caption-text"></div>
+    </div>
+
+    <!-- GENERAL SUCCESS OVERLAY -->
     <div id="success-overlay" class="success-overlay" style="display: none;">
         <div class="success-panel">
             <div class="success-header">
-                <h2>TRANSACTION COMPLETE</h2>
+                <h2>TRANSACTION VERIFIED</h2>
             </div>
             
             <div class="success-message">
-                <p>Welcome to the R.A.P.I.D. system. Your purchase is verified. On behalf of Mr. Ojobaro, thank you for your purchase!</p>
-                <p><strong>Primary Download:</strong> Your file transfer should commence shortly.</p>
-                <p><strong>Backup Contingency:</strong> If the download does not initiate, tap the secure link below.</p>
+                <p>Welcome to R.A.P.I.D.(i). On behalf of Mr. Ojobaro, thank you for your order.</p>
+                <p>Your package transfer access has been sent directly to your email address.</p>
             </div>
-            
-            <a id="contingency-link" class="purchase-btn contingency-btn" href="#">
-                <span class="btn-text">SECURE FILE ACCESS</span>
-                <div class="btn-slide"></div>
-            </a>
         </div>
     </div>
 
     <script>
-        // --- CONFIGURATION ---
-        const PAYPAL_LINK = "https://www.paypal.com/ncp/payment/7NC9DHUY63B98";
-        const CONTINGENCY_DOWNLOAD_LINK = "https://github.com/Laoluuu/Rapid-store/releases/download/v1.0.0/R.A.P.I.D.i.zip";
+        // --- PAYHIP STORE LINKS CONFIGURATION ---
+        const PAYPAL_LINKS = {
+            PAYPAL_LINK_BUNDLE: "https://payhip.com/b/NLfI4", 
+            PAYPAL_LINK_26: "https://payhip.com/b/zrYaV",     
+            PAYPAL_LINK_PA: "https://payhip.com/b/lgx7V",
+            PAYPAL_LINK_25: "https://payhip.com/b/YOwqh"
+        };
 
-        // --- PURCHASE FLOW LOGIC ---
-        const purchaseBtn = document.getElementById('download-btn');
-        const btnText = document.querySelector('.btn-text');
+        // --- CORE & PA DLC SHOWCASE MATRIX ---
+        const showcaseKeys = ['instant_inference', 'cleaner', 'checkin', 'emergency', 'dlc_verify', 'eisenhower', 'scheduling', 'reminders', 'logic', 'light', 'dark'];
+        let currentShowcaseIndex = 0;
 
-        if (purchaseBtn) {
-            purchaseBtn.href = PAYPAL_LINK;
+        const showcaseData = {
+            instant_inference: {
+                type: "video",
+                src: "video_1.mp4",
+                caption: "Sub-50ms Inference Engine: Practical real-time demonstration showcasing near-instantaneous offline AI dialogue response speed."
+            },
+            cleaner: {
+                type: "image",
+                src: "Screenshot (667).png",
+                caption: "Expired Task Cleaner DLC: Automatically scans reminders and schedules for old tasks, enabling 1-click archival or permanent purging."
+            },
+            checkin: {
+                type: "image",
+                src: "Screenshot (666).png",
+                caption: "Daily PA Check-In DLC: Autonomous check-in system verifying active schedules and prompting for missing task reminders."
+            },
+            emergency: {
+                type: "image",
+                src: "Screenshot (669).png",
+                caption: "Unforeseen Event Protocol DLC: Emergency protocol enabling real-time adjustments when disruptions happen."
+            },
+            dlc_verify: {
+                type: "image",
+                src: "Screenshot 2026-11-06 180954.png",
+                caption: "DLC Verification & Management: Internal engine status displaying loaded and verified expansion modules."
+            },
+            eisenhower: {
+                type: "image",
+                src: "Screenshot (690).png",
+                caption: "Eisenhower Decision Assistant: Generates a 4-quadrant decision matrix (Do, Plan, Delegate, Eliminate) when handling stress queries."
+            },
+            scheduling: {
+                type: "image",
+                src: "Screenshot (687).png",
+                caption: "Autonomous Scheduling: Checks calendar databases and assigns tasks to open days."
+            },
+            reminders: {
+                type: "image",
+                src: "Screenshot (688).png",
+                caption: "Reminder Management: Handles, lists, and removes items from the SQLite reminders database."
+            },
+            logic: {
+                type: "image",
+                src: "Screenshot (692).png",
+                caption: "Calculations Engine: Parses math strings directly for rapid execution."
+            },
+            light: {
+                type: "image",
+                src: "Screenshot (671).png",
+                caption: "Light Mode View: Default high-contrast light theme engine interface."
+            },
+            dark: {
+                type: "image",
+                src: "Screenshot (678).png",
+                caption: "Dark Mode View: Low-light theme option for dark environments."
+            }
+        };
 
-            purchaseBtn.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                
-                purchaseBtn.style.pointerEvents = 'none';
-                purchaseBtn.style.background = '#cfa24e';
-                purchaseBtn.style.color = '#000';
-                
-                let dots = 0;
-                btnText.innerText = "ESTABLISHING SECURE CONNECTION";
-                
-                const interval = setInterval(() => {
-                    dots = (dots + 1) % 4;
-                    const dotStr = ".".repeat(dots);
-                    btnText.innerText = "ESTABLISHING SECURE CONNECTION" + dotStr;
-                }, 300);
-
-                setTimeout(() => {
-                    clearInterval(interval);
-                    btnText.innerText = "ACCESS GRANTED";
-                    
-                    setTimeout(() => {
-                        window.location.href = PAYPAL_LINK;
-                    }, 500);
-                }, 2000);
+        function selectPreview(key, evt) {
+            currentShowcaseIndex = showcaseKeys.indexOf(key);
+            const img = document.getElementById('preview-img');
+            const video = document.getElementById('preview-video');
+            const videoSrc = document.getElementById('preview-video-src');
+            const caption = document.getElementById('preview-caption');
+            const item = showcaseData[key];
+            
+            if (item) {
+                if (item.type === 'video') {
+                    img.style.display = 'none';
+                    videoSrc.src = item.src;
+                    video.load();
+                    video.style.display = 'block';
+                    video.play().catch(() => {});
+                } else {
+                    video.style.display = 'none';
+                    video.pause();
+                    img.src = item.src;
+                    img.style.display = 'block';
+                }
+                caption.textContent = item.caption;
+            }
+            
+            const buttons = document.querySelectorAll('.showcase-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-key') === key) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
             });
         }
 
-        function handleSuccessScreen(downloadLink) {
+        function navigateShowcase(direction, evt) {
+            if (evt) evt.stopPropagation();
+            currentShowcaseIndex = (currentShowcaseIndex + direction + showcaseKeys.length) % showcaseKeys.length;
+            selectPreview(showcaseKeys[currentShowcaseIndex]);
+        }
+
+        function handleViewportClick() {
+            openFullscreenModal();
+        }
+
+        // --- FULLSCREEN MODAL & CAROUSEL NAVIGATION ---
+        function openFullscreenModal() {
+            const modal = document.getElementById('image-modal');
+            modal.style.display = "flex";
+            updateModalContent();
+        }
+
+        function closeFullscreenModal() {
+            const modal = document.getElementById('image-modal');
+            const modalVideo = document.getElementById('modal-video');
+            modalVideo.pause();
+            modal.style.display = "none";
+        }
+
+        function updateModalContent() {
+            const key = showcaseKeys[currentShowcaseIndex];
+            const item = showcaseData[key];
+            const modalImg = document.getElementById('modal-img');
+            const modalVideo = document.getElementById('modal-video');
+            const modalVideoSrc = document.getElementById('modal-video-src');
+            const modalCaption = document.getElementById('modal-caption');
+            
+            if (item) {
+                if (item.type === 'video') {
+                    modalImg.style.display = 'none';
+                    modalVideoSrc.src = item.src;
+                    modalVideo.load();
+                    modalVideo.style.display = 'block';
+                    modalVideo.play().catch(() => {});
+                } else {
+                    modalVideo.style.display = 'none';
+                    modalVideo.pause();
+                    modalImg.src = item.src;
+                    modalImg.style.display = 'block';
+                }
+                modalCaption.textContent = item.caption;
+                selectPreview(key);
+            }
+        }
+
+        function navigateModal(direction) {
+            currentShowcaseIndex = (currentShowcaseIndex + direction + showcaseKeys.length) % showcaseKeys.length;
+            updateModalContent();
+        }
+
+        // Initialize preview on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            selectPreview(showcaseKeys[0]);
+        });
+
+        // --- KEYBOARD CONTROLS FOR MODAL (ARROWS + A/D FOR GAMERS) ---
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('image-modal');
+            if (modal.style.display === "flex") {
+                if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+                    navigateModal(1);
+                } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+                    navigateModal(-1);
+                } else if (e.key === 'Escape') {
+                    closeFullscreenModal();
+                }
+            }
+        });
+
+        // --- BUTTON HANDLING & CHECKOUT REDIRECT ---
+        const purchaseButtons = document.querySelectorAll('.purchase-btn');
+        
+        purchaseButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                
+                const targetPaypalKey = btn.getAttribute('data-paypal');
+                const destination = PAYPAL_LINKS[targetPaypalKey] || targetPaypalKey || btn.getAttribute('href');
+                const textSpan = btn.querySelector('.btn-text');
+
+                btn.style.pointerEvents = 'none';
+                btn.style.background = '#cfa24e';
+                btn.style.color = '#000';
+                
+                let dots = 0;
+                textSpan.innerText = "ESTABLISHING SECURE GATEWAY";
+                
+                const interval = setInterval(() => {
+                    dots = (dots + 1) % 4;
+                    textSpan.innerText = "ESTABLISHING SECURE GATEWAY" + ".".repeat(dots);
+                }, 250);
+
+                setTimeout(() => {
+                    clearInterval(interval);
+                    textSpan.innerText = "GATEWAY CONNECTED";
+                    setTimeout(() => {
+                        window.location.href = destination;
+                    }, 400);
+                }, 1400);
+            });
+        });
+
+        // --- DIRECT SUPPORT FORM ---
+        const supportForm = document.getElementById('support-form');
+        const supportEmail = document.getElementById('support-email');
+        const supportAttachment = document.getElementById('support-attachment');
+        const attachmentName = document.getElementById('attachment-name');
+        const removeAttachmentBtn = document.getElementById('remove-attachment-btn');
+        const supportSubmitBtn = document.getElementById('support-submit-btn');
+        const supportSuccess = document.getElementById('support-success');
+        const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024; // 5 MB
+
+        document.querySelectorAll('.support-single-line').forEach(field => {
+            field.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                }
+            });
+            field.addEventListener('input', () => {
+                field.value = field.value.replace(/[\r\n]+/g, ' ');
+            });
+        });
+
+        if (supportEmail) {
+            supportEmail.addEventListener('input', () => {
+                const val = supportEmail.value.trim();
+                const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+                supportEmail.setCustomValidity(val && !isValid ? 'Please enter a valid email address.' : '');
+            });
+        }
+
+        function clearAttachment(warningMessage) {
+            if (supportAttachment) {
+                supportAttachment.value = '';
+            }
+            if (removeAttachmentBtn) {
+                removeAttachmentBtn.style.display = 'none';
+            }
+            if (attachmentName) {
+                if (warningMessage) {
+                    attachmentName.textContent = warningMessage;
+                    attachmentName.style.color = '#f87171';
+                } else {
+                    attachmentName.textContent = 'Optional • Max 5 MB';
+                    attachmentName.style.color = '#888';
+                }
+            }
+        }
+
+        if (supportAttachment && attachmentName) {
+            supportAttachment.addEventListener('change', () => {
+                if (supportAttachment.files && supportAttachment.files.length > 0) {
+                    const file = supportAttachment.files[0];
+                    if (file.size > MAX_ATTACHMENT_BYTES) {
+                        const sizeMB = (file.size / (1024 * 1024)).toFixed(1);
+                        clearAttachment(`Too large (${sizeMB} MB) — must be less than 5 MB`);
+                        return;
+                    }
+                    attachmentName.textContent = file.name;
+                    attachmentName.style.color = '#cfa24e';
+                    if (removeAttachmentBtn) {
+                        removeAttachmentBtn.style.display = 'inline-flex';
+                    }
+                } else {
+                    clearAttachment();
+                }
+            });
+        }
+
+        if (removeAttachmentBtn) {
+            removeAttachmentBtn.addEventListener('click', () => {
+                clearAttachment();
+            });
+        }
+
+        async function submitSupportAjax() {
+            if (!supportForm.reportValidity()) return;
+
+            const originalText = supportSubmitBtn.textContent;
+            supportSubmitBtn.disabled = true;
+            supportSubmitBtn.textContent = 'SENDING...';
+
+            try {
+                const formData = new FormData(supportForm);
+                const response = await fetch(supportForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    supportForm.style.display = 'none';
+                    supportSuccess.style.display = 'block';
+                    supportForm.reset();
+                    clearAttachment();
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (err) {
+                alert('Unable to send message right now. If you have a strict browser firewall or antivirus web shield enabled, please try again or disable link scanning for this page.');
+            } finally {
+                supportSubmitBtn.disabled = false;
+                supportSubmitBtn.textContent = originalText;
+            }
+        }
+
+        function resetSupportForm() {
+            supportSuccess.style.display = 'none';
+            supportForm.style.display = 'flex';
+        }
+
+        if (supportForm) {
+            supportForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                submitSupportAjax();
+            });
+        }
+
+        // --- POST-PURCHASE REDIRECT OVERLAY DISPLAY ---
+        function showSuccessOverlay() {
             document.getElementById('main-header').style.display = 'none';
             document.getElementById('store-content').style.display = 'none';
-            document.getElementsByTagName('footer')[0].style.display = 'none';
+            document.querySelector('footer').style.display = 'none';
 
             const overlay = document.getElementById('success-overlay');
-            const contingencyBtn = document.getElementById('contingency-link');
-            
-            if (contingencyBtn) {
-                contingencyBtn.href = downloadLink;
-            }
-
             if (overlay) {
                 overlay.style.display = 'flex';
             }
-
-            window.location.href = downloadLink;
         }
 
-        // --- POST-PURCHASE REDIRECT LISTENER ---
         const urlParams = new URLSearchParams(window.location.search);
-        const status = urlParams.get('status');
-        
-        if (status === 'success') {
-            handleSuccessScreen(CONTINGENCY_DOWNLOAD_LINK);
+        if (urlParams.get('status') === 'success') {
+            showSuccessOverlay();
         }
 
-        // --- CURRENCY CONVERTER LOGIC ---
-        const basePriceZAR = 30;
+        // --- REAL-TIME GLOBAL CURRENCY CONVERTER ---
         const rates = {
-            'US': { code: 'USD', rate: 0.055, symbol: '$' },
-            'GB': { code: 'GBP', rate: 0.043, symbol: '£' },
-            'EU': { code: 'EUR', rate: 0.051, symbol: '€' },
-            'JP': { code: 'JPY', rate: 8.2, symbol: '¥' },
+            'ZA': { code: 'ZAR', rate: 16.5, symbol: 'ZAR ' },
+            'GB': { code: 'GBP', rate: 0.78, symbol: '£' },
+            'EU': { code: 'EUR', rate: 0.92, symbol: '€' },
+            'JP': { code: 'JPY', rate: 150.0, symbol: '¥' },
+            'US': { code: 'USD', rate: 1.0, symbol: '$' }
         };
+
         const userLang = navigator.language || navigator.userLanguage; 
-        const region = userLang.split('-')[1] || 'US';
-        const target = rates[region] || rates['US'];
-        const convertedPrice = (basePriceZAR * target.rate).toFixed(2);
-        const displayElement = document.getElementById('currency-converted');
-        if (displayElement) {
-            displayElement.textContent = `(Approx. ${target.symbol}${convertedPrice} ${target.code})`;
-        }
+        const parts = userLang.split('-');
+        let region = parts[1] ? parts[1].toUpperCase() : null;
+
+        try {
+            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            if (timeZone && (timeZone.includes('Johannesburg') || timeZone.includes('Africa/'))) {
+                region = 'ZA';
+            }
+        } catch (e) {}
+
+        const targetCurrency = rates[region] || rates['US'];
+
+        document.querySelectorAll('.currency-converted').forEach(el => {
+            const usd = parseFloat(el.getAttribute('data-usd'));
+            if (usd) {
+                if (targetCurrency.code === 'USD') {
+                    el.textContent = `(Standard USD pricing)`;
+                } else {
+                    const converted = (usd * targetCurrency.rate).toFixed(2);
+                    el.textContent = `(approx. ${targetCurrency.symbol}${converted})`;
+                }
+            }
+        });
     </script>
 </body>
 </html>
